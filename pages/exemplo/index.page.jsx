@@ -3,8 +3,6 @@ import { useTranslation } from '../../renderer/useTranslation'
 
 export { Page }
 
-export const prerender = true
-
 function Page() {
   const pageContext = usePageContext()
   const { t, loading, locale: currentLocale } = useTranslation()
