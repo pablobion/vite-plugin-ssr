@@ -30,6 +30,15 @@ function PageShell({ pageContext, children }) {
             <Link className="navitem" href="/tailwind-test">
               Teste Tailwind
             </Link>
+            <div style={{ marginTop: '10px', paddingTop: '10px', borderTop: '1px solid #eee' }}>
+              <div style={{ fontSize: '12px', color: '#666', marginBottom: '5px' }}>Exemplos i18n:</div>
+              <Link className="navitem" href="/pt/exemplo">
+                🇧🇷 PT
+              </Link>
+              <Link className="navitem" href="/en/exemplo">
+                🇺🇸 EN
+              </Link>
+            </div>
           </Sidebar>
           <Content>{children}</Content>
         </Layout>
