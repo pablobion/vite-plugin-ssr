@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import logo from './logo.svg'
+import '../input.css'
+import '../test-tailwind.css'
 import './PageShell.css'
 import { PageContextProvider } from './usePageContext'
 import { Link } from './Link'
@@ -24,6 +26,9 @@ function PageShell({ pageContext, children }) {
             </Link>
             <Link className="navitem" href="/about">
               About
+            </Link>
+            <Link className="navitem" href="/tailwind-test">
+              Teste Tailwind
             </Link>
           </Sidebar>
           <Content>{children}</Content>

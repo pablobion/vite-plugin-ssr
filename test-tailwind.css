@@ -1,0 +1,26 @@
+/* Teste manual do Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Classes de teste específicas */
+.test-red {
+  background-color: #EF4444 !important;
+  color: white !important;
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+}
+
+.test-blue {
+  background-color: #3B82F6 !important;
+  color: white !important;
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+}
+
+.test-green {
+  background-color: #10B981 !important;
+  color: white !important;
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+}
