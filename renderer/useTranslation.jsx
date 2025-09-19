@@ -2,12 +2,15 @@ import { usePageContext } from './usePageContext'
 import { useState, useEffect } from 'react'
 
 // Fallback estático para SSG
-import ptFallback from '../pages/exemplo/translations/pt.json'
-import enFallback from '../pages/exemplo/translations/en.json'
-
 const staticTranslations = {
-  pt: ptFallback,
-  en: enFallback,
+  pt: {
+    title: "Título em Português",
+    description: "Descrição da página em Português"
+  },
+  en: {
+    title: "Title in English",
+    description: "Page description in English"
+  }
 }
 
 export function useTranslation() {
