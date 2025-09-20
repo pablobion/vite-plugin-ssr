@@ -15,11 +15,8 @@ function onBeforePrerender(prerenderContext) {
   prerenderContext.pageContexts.forEach((pageContext) => {
     // Duplicar pageContext para cada locale
     locales.forEach((locale) => {
-      // Localizar URL
-      let { urlOriginal } = pageContext
-      if (locale !== localeDefault) {
-        urlOriginal = `/${locale}${pageContext.urlOriginal}`
-      }
+      // Localizar URL - TODOS os idiomas terão prefixo
+      const urlOriginal = `/${locale}${pageContext.urlOriginal}`
       pageContexts.push({
         ...pageContext,
         urlOriginal,

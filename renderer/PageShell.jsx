@@ -38,6 +38,9 @@ function PageShell({ pageContext, children }) {
               <Link className="navitem" href="/en/exemplo">
                 🇺🇸 EN
               </Link>
+              <Link className="navitem" href="/es/exemplo">
+                🇪🇸 ES
+              </Link>
             </div>
           </Sidebar>
           <Content>{children}</Content>

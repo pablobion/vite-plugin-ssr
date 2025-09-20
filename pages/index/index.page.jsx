@@ -72,57 +72,82 @@ function Page() {
         <p style={{ color: '#64748b', marginBottom: '15px' }}>
           Sistema implementado seguindo a documentação oficial do vite-plugin-ssr:
         </p>
-        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-          <a
-            href="/pt/exemplo"
-            style={{
-              display: 'inline-block',
-              padding: '10px 20px',
-              backgroundColor: '#8B5CF6',
-              color: 'white',
-              textDecoration: 'none',
-              borderRadius: '6px',
-              fontWeight: 'bold',
-              fontSize: '14px',
-              transition: 'all 0.2s'
-            }}
-            onMouseOver={(e) => {
-              e.target.style.backgroundColor = '#7C3AED';
-              e.target.style.transform = 'translateY(-1px)';
-            }}
-            onMouseOut={(e) => {
-              e.target.style.backgroundColor = '#8B5CF6';
-              e.target.style.transform = 'translateY(0)';
-            }}
-          >
-            🇧🇷 Português (/pt/exemplo)
-          </a>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <a
+                href="/pt/exemplo"
+                style={{
+                  display: 'inline-block',
+                  padding: '10px 20px',
+                  backgroundColor: '#8B5CF6',
+                  color: 'white',
+                  textDecoration: 'none',
+                  borderRadius: '6px',
+                  fontWeight: 'bold',
+                  fontSize: '14px',
+                  transition: 'all 0.2s'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#7C3AED';
+                  e.target.style.transform = 'translateY(-1px)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = '#8B5CF6';
+                  e.target.style.transform = 'translateY(0)';
+                }}
+              >
+                🇧🇷 Português (/pt/exemplo)
+              </a>
 
-          <a
-            href="/en/exemplo"
-            style={{
-              display: 'inline-block',
-              padding: '10px 20px',
-              backgroundColor: '#8B5CF6',
-              color: 'white',
-              textDecoration: 'none',
-              borderRadius: '6px',
-              fontWeight: 'bold',
-              fontSize: '14px',
-              transition: 'all 0.2s'
-            }}
-            onMouseOver={(e) => {
-              e.target.style.backgroundColor = '#7C3AED';
-              e.target.style.transform = 'translateY(-1px)';
-            }}
-            onMouseOut={(e) => {
-              e.target.style.backgroundColor = '#8B5CF6';
-              e.target.style.transform = 'translateY(0)';
-            }}
-          >
-            🇺🇸 English (/en/exemplo)
-          </a>
-        </div>
+              <a
+                href="/en/exemplo"
+                style={{
+                  display: 'inline-block',
+                  padding: '10px 20px',
+                  backgroundColor: '#8B5CF6',
+                  color: 'white',
+                  textDecoration: 'none',
+                  borderRadius: '6px',
+                  fontWeight: 'bold',
+                  fontSize: '14px',
+                  transition: 'all 0.2s'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#7C3AED';
+                  e.target.style.transform = 'translateY(-1px)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = '#8B5CF6';
+                  e.target.style.transform = 'translateY(0)';
+                }}
+              >
+                🇺🇸 English (/en/exemplo)
+              </a>
+
+              <a
+                href="/es/exemplo"
+                style={{
+                  display: 'inline-block',
+                  padding: '10px 20px',
+                  backgroundColor: '#8B5CF6',
+                  color: 'white',
+                  textDecoration: 'none',
+                  borderRadius: '6px',
+                  fontWeight: 'bold',
+                  fontSize: '14px',
+                  transition: 'all 0.2s'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#7C3AED';
+                  e.target.style.transform = 'translateY(-1px)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = '#8B5CF6';
+                  e.target.style.transform = 'translateY(0)';
+                }}
+              >
+                🇪🇸 Español (/es/exemplo)
+              </a>
+            </div>
 
         <div style={{ marginTop: '15px', padding: '10px', backgroundColor: '#e0f2fe', borderRadius: '6px', fontSize: '12px', color: '#0277bd' }}>
           <strong>✅ Implementação Oficial:</strong> Usando onBeforeRoute() e onBeforePrerender() do vite-plugin-ssr, URLs específicas, meta tags por idioma, SSR/SSG compatível, sem middleware customizado.
