@@ -60,7 +60,7 @@ async function render(pageContext) {
         <meta name="language" content="${locale}" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
-        <link rel="canonical" href="https://seudominio.com${pageContext.urlOriginal}" />
+        <link rel="canonical" href="https://seudominio.com/${locale}${pageContext.urlOriginal}" />
         <title>${title}</title>
       </head>
       <body>
