@@ -1,4 +1,4 @@
-4Generate - Sistema de Internacionalização com Vite + SSR
+Sistema de Internacionalização com Vite + SSR
 
 [![Vite](https://img.shields.io/badge/Vite-4.5.14-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
