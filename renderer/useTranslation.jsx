@@ -10,6 +10,10 @@ const staticTranslations = {
   en: {
     title: "Title in English",
     description: "Page description in English"
+  },
+  es: {
+    title: "Título en Español",
+    description: "Descripción de la página en Español"
   }
 }
 

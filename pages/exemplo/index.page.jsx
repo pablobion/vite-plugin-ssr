@@ -1,5 +1,6 @@
 import { usePageContext } from '../../renderer/usePageContext'
 import { useTranslation } from '../../renderer/useTranslation'
+import { navigate } from 'vite-plugin-ssr/client/router'
 
 export { Page }
 
@@ -8,10 +9,10 @@ function Page() {
   const { t, loading, locale: currentLocale } = useTranslation()
 
   const handleLanguageChange = (newLocale) => {
-    // Redirecionar para a nova URL com o locale
+    // Navegar para a nova URL com o locale usando vite-plugin-ssr
     const currentUrl = window.location.pathname
     const newUrl = currentUrl.replace(`/${currentLocale}`, `/${newLocale}`)
-    window.location.href = newUrl
+    navigate(newUrl)
   }
 
   if (loading) {
@@ -51,6 +52,14 @@ function Page() {
               >
                 🇺🇸 EN
               </button>
+              <button
+                onClick={() => handleLanguageChange('es')}
+                className={`px-3 py-1 rounded text-sm font-medium transition-colors duration-200 ${
+                  currentLocale === 'es' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                }`}
+              >
+                🇪🇸 ES
+              </button>
             </div>
           </div>
           <p className="text-lg text-gray-600 mb-6">
@@ -68,8 +77,8 @@ function Page() {
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-8">
           <h3 className="font-bold">✅ SEO Otimizado:</h3>
           <ul className="list-disc list-inside mt-2 space-y-1">
-            <li>URLs específicas: <code>/pt/exemplo</code>, <code>/en/exemplo</code></li>
-            <li>Detecção automática via headers HTTP</li>
+            <li>URLs específicas: <code>/pt/exemplo</code>, <code>/en/exemplo</code>, <code>/es/exemplo</code></li>
+            <li>Detecção automática via URL</li>
             <li>Meta tags específicas por idioma</li>
             <li>Conteúdo renderizado no servidor (SSR)</li>
             <li>Compatível com SSG</li>

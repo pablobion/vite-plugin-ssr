@@ -6,7 +6,6 @@ import ReactDOMServer from 'react-dom/server'
 import { PageShell } from './PageShell'
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server'
 import logoUrl from './logo.svg'
-import { generateSitemapXML } from './sitemap-generator.js'
 
 const locales = ['pt', 'en', 'es']
 const localeDefault = 'pt'
@@ -26,11 +25,6 @@ function onBeforePrerender(prerenderContext) {
       })
     })
   })
-
-  // Gerar sitemap XML automaticamente
-  console.log('🗺️ Gerando sitemap.xml...')
-  generateSitemapXML(pageContexts)
-
   return {
     prerenderContext: {
       pageContexts
