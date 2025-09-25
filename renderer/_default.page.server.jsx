@@ -76,8 +76,8 @@ async function render(pageContext) {
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
         <link rel="canonical" href="https://seudominio.com/${locale}${pageContext.urlOriginal}" />
-        ${hreflangTags}
-        ${xDefaultTag}
+        ${dangerouslySkipEscape(hreflangTags)}
+        ${dangerouslySkipEscape(xDefaultTag)}
         <title>${title}</title>
       </head>
       <body>
