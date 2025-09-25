@@ -1,9 +1,12 @@
-import { Link } from '../../renderer/Link'
+import { Link } from '../ui/Link'
 import { usePageContext } from '../../renderer/usePageContext'
 import { getPagesByCategory, categories } from '../../configs/pages'
+import ThemeToggle from './ThemeToggle'
+import { useTheme } from './ThemeContext'
 
-export default function Sidebar() {
+export default function Sidebar({ isCollapsed }) {
   const pageContext = usePageContext()
+  const { isDark } = useTheme()
   const locale = pageContext?.locale || 'pt'
   const currentPath = pageContext?.urlPathname || '/'
 
@@ -36,51 +39,56 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="w-64 bg-gray-100 border-r border-gray-200 p-4 flex flex-col">
+    <div className={`bg-background dark:bg-secondary bg-secondary border-r border-border flex flex-col h-screen transition-all duration-300 ${
+      isCollapsed
+        ? 'w-0 overflow-hidden p-0'
+        : 'w-72 sm:w-64 p-4'
+    }`}>
       {/* Logo */}
-      <div className="mb-4">
+      <div className="mb-4 flex items-center justify-between">
         <Link
           href={`/${locale}`}
-          className="text-xl font-bold text-gray-800 hover:text-gray-600 transition-colors"
+          className="text-xl font-bold text-foreground hover:text-muted-foreground transition-colors"
         >
           4generate
         </Link>
+        <ThemeToggle />
       </div>
 
       {/* Seção de idiomas */}
-      <div className="mb-6 pb-4 border-b border-gray-200">
-        <div className="text-xs text-gray-500 mb-2">Idiomas:</div>
+      <div className="mb-6 pb-4 border-b border-border">
+        <div className="text-xs text-muted-foreground mb-2">Idiomas:</div>
         <div className="flex space-x-2">
-          <Link
-            href={getLanguageUrl('pt')}
-            className={`px-2 py-1 text-xs rounded transition-colors ${
-              locale === 'pt'
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            🇧🇷 PT
-          </Link>
-          <Link
-            href={getLanguageUrl('en')}
-            className={`px-2 py-1 text-xs rounded transition-colors ${
-              locale === 'en'
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            🇺🇸 EN
-          </Link>
-          <Link
-            href={getLanguageUrl('es')}
-            className={`px-2 py-1 text-xs rounded transition-colors ${
-              locale === 'es'
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            🇪🇸 ES
-          </Link>
+            <Link
+              href={getLanguageUrl('pt')}
+              className={`px-2 py-1 text-xs rounded transition-colors ${
+                locale === 'pt'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground'
+              }`}
+            >
+              🇧🇷 PT
+            </Link>
+            <Link
+              href={getLanguageUrl('en')}
+              className={`px-2 py-1 text-xs rounded transition-colors ${
+                locale === 'en'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground'
+              }`}
+            >
+              🇺🇸 EN
+            </Link>
+            <Link
+              href={getLanguageUrl('es')}
+              className={`px-2 py-1 text-xs rounded transition-colors ${
+                locale === 'es'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground'
+              }`}
+            >
+              🇪🇸 ES
+            </Link>
         </div>
       </div>
 
@@ -88,10 +96,10 @@ export default function Sidebar() {
       <nav className="flex flex-col space-y-4 flex-1">
         {Object.entries(pagesByCategory).map(([categoryKey, pages]) => (
           <div key={categoryKey} className="space-y-2">
-            {/* Título da categoria */}
-            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-              {categories[categoryKey]}
-            </div>
+                {/* Título da categoria */}
+                <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  {categories[categoryKey]}
+                </div>
 
             {/* Links da categoria */}
             <div className="space-y-1">
@@ -101,8 +109,8 @@ export default function Sidebar() {
                   href={`/${locale}${page.href}`}
                   className={`px-3 py-2 rounded text-sm transition-colors flex items-center ${
                     isActive(`/${locale}${page.href}`)
-                      ? 'bg-blue-500 text-white'
-                      : 'text-gray-700 hover:bg-gray-200'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'text-foreground hover:bg-accent hover:text-accent-foreground'
                   }`}
                 >
                   <span className="mr-2">

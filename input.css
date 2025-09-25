@@ -1,3 +1,126 @@
 @tailwind base;
+/* Diretivas do Tailwind CSS para importar estilos base, componentes e utilitários */
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Variáveis CSS para tema claro - cores em formato HSL */
+    --background: 0 0% 100%;
+    /* Cor de fundo principal - branco */
+    --foreground: 0 0% 3.9%;
+    /* Cor do texto principal - quase preto */
+    --card: 0 0% 100%;
+    /* Cor de fundo dos cartões - branco */
+    --card-foreground: 0 0% 3.9%;
+    /* Cor do texto nos cartões - quase preto */
+    --popover: 0 0% 100%;
+    /* Cor de fundo dos popovers - branco */
+    --popover-foreground: 0 0% 3.9%;
+    /* Cor do texto nos popovers - quase preto */
+    --primary: 270 100% 50%;
+    /* Cor primária - roxo vibrante */
+    --primary-foreground: 0 0% 98%;
+    /* Cor do texto sobre o primário - quase branco */
+    --secondary: 0 0% 99%;
+    /* Cor secundária - cinza muito claro */
+    --secondary-foreground: 0 0% 9%;
+    /* Cor do texto sobre o secundário - cinza escuro */
+    --muted: 0 0% 96.1%;
+    /* Cor para elementos "mudos" - cinza muito claro */
+    --muted-foreground: 0 0% 45.1%;
+    /* Cor do texto em elementos "mudos" - cinza médio */
+    --accent: 0 0% 96.1%;
+    /* Cor de destaque - cinza muito claro */
+    --accent-foreground: 0 0% 9%;
+    /* Cor do texto sobre o destaque - cinza escuro */
+    --destructive: 0 84% 60%;
+    /* Cor para ações destrutivas - vermelho */
+    --destructive-foreground: 0 0% 98%;
+    /* Cor do texto sobre ações destrutivas - quase branco */
+    --border: 0 0% 89.8%;
+    /* Cor das bordas - cinza claro */
+    --input: 0 0% 89.8%;
+    /* Cor de fundo dos inputs - cinza claro */
+    --ring: 270 100% 50%;
+    /* Cor do anel de foco - roxo vibrante */
+    --chart-1: 270 100% 50%;
+    /* Cor para gráficos - roxo vibrante */
+    --chart-2: 280 100% 60%;
+    /* Cor para gráficos - roxo mais claro */
+    --chart-3: 260 100% 40%;
+    /* Cor para gráficos - roxo mais escuro */
+    --chart-4: 290 100% 70%;
+    /* Cor para gráficos - roxo claro */
+    --chart-5: 250 100% 80%;
+    /* Cor para gráficos - roxo muito claro */
+    --radius: 0.5rem
+      /* Raio padrão para bordas arredondadas */
+  }
+
+  .dark {
+    /* Variáveis CSS para tema escuro - cores em formato HSL */
+    --background: 0 0% 10%;
+    /* Cor de fundo principal - preto */
+    --foreground: 0 0% 98%;
+    /* Cor do texto principal - quase branco */
+    --card: 0 0% 0%;
+    /* Cor de fundo dos cartões - preto */
+    --card-foreground: 0 0% 98%;
+    /* Cor do texto nos cartões - quase branco */
+    --popover: 0 0% 0%;
+    /* Cor de fundo dos popovers - preto */
+    --popover-foreground: 0 0% 98%;
+    /* Cor do texto nos popovers - quase branco */
+    --primary: 270 100% 50%;
+    /* Cor primária - roxo vibrante (mantida igual) */
+    --primary-foreground: 0 0% 98%;
+    /* Cor do texto sobre o primário - quase branco */
+    --secondary: 0 0% 15%;
+    /* Cor secundária - cinza muito escuro */
+    --secondary-foreground: 0 0% 98%;
+    /* Cor do texto sobre o secundário - quase branco */
+    --muted: 0 0% 15%;
+    /* Cor para elementos "mudos" - cinza muito escuro */
+    --muted-foreground: 0 0% 70%;
+    /* Cor do texto em elementos "mudos" - cinza médio */
+    --accent: 270 100% 50%;
+    /* Cor de destaque - roxo vibrante */
+    --accent-foreground: 0 0% 98%;
+    /* Cor do texto sobre o destaque - quase branco */
+    --destructive: 0 84% 60%;
+    /* Cor para ações destrutivas - vermelho (mantida igual) */
+    --destructive-foreground: 0 0% 98%;
+    /* Cor do texto sobre ações destrutivas - quase branco */
+    --border: 0 0% 20%;
+    /* Cor das bordas - cinza escuro */
+    --input: 0 0% 20%;
+    /* Cor de fundo dos inputs - cinza escuro */
+    --ring: 270 100% 50%;
+    /* Cor do anel de foco - roxo vibrante (mantida igual) */
+    --chart-1: 270 100% 50%;
+    /* Cor para gráficos - roxo vibrante (mantida igual) */
+    --chart-2: 280 100% 60%;
+    /* Cor para gráficos - roxo mais claro (mantida igual) */
+    --chart-3: 260 100% 40%;
+    /* Cor para gráficos - roxo mais escuro (mantida igual) */
+    --chart-4: 290 100% 70%;
+    /* Cor para gráficos - roxo claro (mantida igual) */
+    --chart-5: 250 100% 80%
+      /* Cor para gráficos - roxo muito claro (mantida igual) */
+  }
+}
+
+@layer base {
+
+  /* Estilos base aplicados globalmente */
+  * {
+    /* Aplica a cor de borda padrão a todos os elementos */
+    @apply border-border;
+  }
+
+  body {
+    /* Define cor de fundo e texto para o body usando as variáveis CSS */
+    @apply bg-background text-foreground;
+  }
+}

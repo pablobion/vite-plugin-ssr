@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+---
+Para estilização utilizar as cores que são encontradas no input.css,
+Para construir os componentes sempre utilizar os do shadcn alguns já estão instalados em components/ui,
+Sempre construir pensando em responsividade

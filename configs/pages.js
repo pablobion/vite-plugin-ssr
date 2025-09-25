@@ -1,26 +1,5 @@
 // Configuração das páginas do projeto para a sidebar
 export const pages = [
-  // Página principal
-  {
-    key: 'home',
-    label: 'Home',
-    href: '/',
-    category: 'main',
-    keywords: ['home', 'início', 'principal'],
-    show: true,
-    locales: ['pt', 'en', 'es']
-  },
-
-  // Páginas principais
-  {
-    key: 'about',
-    label: 'Sobre',
-    href: '/about',
-    category: 'main',
-    keywords: ['sobre', 'about', 'informações'],
-    show: true,
-    locales: ['pt', 'en', 'es']
-  },
 
   // Páginas de exemplo
   {
@@ -49,6 +28,26 @@ export const pages = [
     href: '/tailwind-test',
     category: 'examples',
     keywords: ['tailwind', 'css', 'teste', 'test', 'estilos'],
+    show: true,
+    locales: ['pt', 'en', 'es']
+  },
+
+  {
+    key: 'gerador-cpf',
+    href: '/gerador-cpf',
+    label: 'Gerador de CPF',
+    category: 'generators',
+    keywords: ['cpf', 'gerador', 'gerador de cpf', 'validador', 'brasil', 'documento'],
+    show: true,
+    locales: ['pt', 'en', 'es']
+  },
+
+  {
+    key: 'components',
+    href: '/components',
+    label: 'Componentes',
+    category: 'examples',
+    keywords: ['componentes', 'ui', 'teste', 'components', 'interface'],
     show: true,
     locales: ['pt', 'en', 'es']
   },
