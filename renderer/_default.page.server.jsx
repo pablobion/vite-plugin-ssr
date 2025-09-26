@@ -1,12 +1,13 @@
 export { render, onBeforePrerender }
 // See https://vite-plugin-ssr.com/data-fetching
-export const passToClient = ['pageProps', 'urlPathname', 'locale']
+export const passToClient = ['pageProps', 'urlPathname', 'locale', 'urlOriginal']
 
 import ReactDOMServer from 'react-dom/server'
 import { PageShell } from './PageShell'
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server'
 import logoUrl from './logo.svg'
 import { generateSitemapXML } from './sitemap-generator.js'
+import { getPageData, generatePageMetas, generateAllSchemas } from '../lib/metadata'
 
 const locales = ['pt', 'en', 'es']
 const localeDefault = 'pt'
@@ -16,8 +17,9 @@ function onBeforePrerender(prerenderContext) {
   prerenderContext.pageContexts.forEach((pageContext) => {
     // Duplicar pageContext para cada locale
     locales.forEach((locale) => {
-      // Localizar URL - TODOS os idiomas terão prefixo
+      // Sempre adicionar o locale à URL original
       const urlOriginal = `/${locale}${pageContext.urlOriginal}`
+
       pageContexts.push({
         ...pageContext,
         urlOriginal,
@@ -39,7 +41,7 @@ function onBeforePrerender(prerenderContext) {
 }
 
 async function render(pageContext) {
-  const { Page, pageProps, locale } = pageContext
+  const { Page, pageProps, locale, urlOriginal } = pageContext
   // This render() hook only supports SSR, see https://vite-plugin-ssr.com/render-modes for how to modify render() to support SPA
   if (!Page) throw new Error('My render() hook expects pageContext.Page to be defined')
   const pageHtml = ReactDOMServer.renderToString(
@@ -48,10 +50,22 @@ async function render(pageContext) {
     </PageShell>
   )
 
+  // Buscar dados da página no pages.js
+  const { pageData, basePath } = getPageData(urlOriginal, locale)
+
+  // Gerar metatags baseadas nos dados da página
+  const pageMetas = generatePageMetas(pageData, locale, basePath)
+
+  // Gerar Schema Markup para SEO
+  const schemas = generateAllSchemas(pageData, locale, urlOriginal)
+
   // See https://vite-plugin-ssr.com/head
   const { documentProps } = pageContext.exports
-  const title = (documentProps && documentProps.title) || 'Vite SSR app'
-  const desc = (documentProps && documentProps.description) || 'App using Vite + vite-plugin-ssr'
+
+  // Usar documentProps se existir, senão usar dados do pages.js
+  const title = (documentProps && documentProps.title) || pageMetas.title
+  const desc = (documentProps && documentProps.description) || pageMetas.description
+  const keywords = (documentProps && documentProps.keywords) || pageMetas.keywords
 
   // Definir idioma do HTML baseado no locale
   const lang = locale === 'pt' ? 'pt-BR' : locale === 'en' ? 'en-US' : 'es-ES'
@@ -72,6 +86,7 @@ async function render(pageContext) {
         <link rel="icon" href="${logoUrl}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
+        <meta name="keywords" content="${keywords}" />
         <meta name="language" content="${locale}" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
@@ -79,6 +94,7 @@ async function render(pageContext) {
         ${dangerouslySkipEscape(hreflangTags)}
         ${dangerouslySkipEscape(xDefaultTag)}
         <title>${title}</title>
+        ${dangerouslySkipEscape(schemas.map(schema => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`).join('\n        '))}
       </head>
       <body>
         <div id="react-root">${dangerouslySkipEscape(pageHtml)}</div>

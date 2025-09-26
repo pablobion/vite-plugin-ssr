@@ -28,19 +28,8 @@ export default function Header({ isCollapsed, toggleSidebar }) {
             />
           </svg>
         </button>
-
-        {/* Logo - visível apenas em mobile */}
-        <div className="ml-2 sm:hidden">
-          <a
-            href={`/${locale}`}
-            className="text-lg font-bold text-foreground hover:text-primary transition-colors"
-          >
-            4generate
-          </a>
-        </div>
-
-        {/* Navegação central - escondida em mobile */}
-        <nav className="hidden md:flex flex-1 justify-center space-x-6 lg:space-x-8">
+        {/* Navegação central - só aparece em telas grandes */}
+        <nav className="hidden lg:flex flex justify-end space-x-6 xl:space-x-8 w-full mr-20">
           <a
             href={`/${locale}`}
             className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
@@ -62,7 +51,7 @@ export default function Header({ isCollapsed, toggleSidebar }) {
         </nav>
 
         {/* ToolSearch - responsivo */}
-        <div className="flex-1 md:flex-none md:pr-4 ml-2 md:ml-0">
+        <div className="flex-1 lg:flex-none lg:pr-4 ml-2 lg:ml-0">
           <ToolSearch />
         </div>
       </div>

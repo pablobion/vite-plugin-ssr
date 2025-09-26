@@ -7,6 +7,7 @@ import { childrenPropType } from './PropTypeValues'
 import Sidebar from '../components/layout/Sidebar'
 import Header from '../components/layout/Header'
 import { ThemeProvider } from '../components/layout/ThemeContext'
+import { BreadcrumbNav } from '../components/layout/BreadcrumbNav'
 
 export { PageShell }
 
@@ -33,13 +34,12 @@ function PageShell({ pageContext, children }) {
               if (savedTheme) {
                 document.documentElement.classList.toggle('dark', savedTheme === 'dark');
               } else {
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                document.documentElement.classList.toggle('dark', prefersDark);
+                // Padrão: modo dark quando não há tema selecionado
+                document.documentElement.classList.add('dark');
               }
             } catch (e) {
-              // Fallback: usar preferência do sistema
-              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-              document.documentElement.classList.toggle('dark', prefersDark);
+              // Fallback: modo dark como padrão
+              document.documentElement.classList.add('dark');
             }
           })();
         `
@@ -94,7 +94,8 @@ Content.propTypes = {
 function Content({ children }) {
   return (
     <div className="flex-1 min-h-[calc(100vh-64px)]">
-      <div className="bg-blue-300/10 dark:bg-background ">
+      <div className="bg-blue-300/20 dark:bg-background flex flex-col justify-center items-center p-3 lg:px-80">
+        <BreadcrumbNav />
         {children}
       </div>
     </div>

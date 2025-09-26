@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const ThemeContext = createContext()
 
 export function ThemeProvider({ children }) {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(true) // Padrão: dark mode
 
   useEffect(() => {
     // Sincronizar com o estado já aplicado pelo script inline

@@ -146,9 +146,8 @@ export default function ToolSearch() {
           </button>
         ) : (
           <div className="absolute inset-y-0 right-0 pr-2 sm:pr-3 flex items-center pointer-events-none">
-            <kbd className="pointer-events-none inline-flex h-5 sm:h-6 select-none items-center gap-1 rounded border border-border bg-background px-1.5 sm:px-2 font-mono text-[10px] sm:text-xs font-semibold text-primary dark:text-white shadow-md">
-              <span className="hidden sm:inline">Ctrl + K</span>
-              <span className="sm:hidden">⌘K</span>
+            <kbd className="bg-background rounded-md px-2 py-1 text-sm font-semibold text-primary dark:text-white shadow-md">
+              <span className="">Ctrl + K</span>
             </kbd>
           </div>
         )}

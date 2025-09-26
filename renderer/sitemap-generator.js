@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import { getPageDataForSitemap } from '../lib/metadata'
 
 export function generateSitemapXML(pageContexts) {
   try {
@@ -32,6 +33,8 @@ export function generateSitemapXML(pageContexts) {
     console.log('✅ Sitemap XML otimizado gerado com sucesso!')
     console.log(`📊 Total de páginas indexadas: ${validPageContexts.length}`)
     console.log(`🌍 Idiomas suportados: pt-BR, en-US, es-ES`)
+    console.log(`🏷️ Keywords integradas do pages.js`)
+    console.log(`📈 Prioridades baseadas em category e keywords`)
     console.log(`📁 Arquivo salvo em: ${sitemapPath}`)
 
   } catch (error) {
@@ -105,14 +108,22 @@ function generateOptimizedSitemapContent(pagesByBaseUrl) {
   // Gerar entrada para cada idioma de cada página
   Object.entries(pagesByBaseUrl).forEach(([baseUrlPath, pageContexts]) => {
     pageContexts.forEach(pageContext => {
-      const priority = getPriority(baseUrlPath)
-      const changeFreq = getChangeFreq(baseUrlPath)
+      // Buscar dados da página usando utilitário centralizado
+      const pageData = getPageDataForSitemap(baseUrlPath)
+
+      const priority = getPriority(baseUrlPath, pageData)
+      const changeFreq = getChangeFreq(baseUrlPath, pageData)
+
+      // Adicionar comentário com keywords se disponível
+      const keywordsComment = pageData?.keywords ?
+        `    <!-- Keywords: ${pageData.keywords.join(', ')} -->` : ''
 
       sitemap += `  <url>
     <loc>${baseUrl}${pageContext.urlOriginal}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>${changeFreq}</changefreq>
     <priority>${priority}</priority>
+${keywordsComment}
 `
 
       // Adicionar tags hreflang para todos os idiomas desta página
@@ -129,20 +140,69 @@ function generateOptimizedSitemapContent(pagesByBaseUrl) {
   return sitemap
 }
 
-function getPriority(url) {
-  if (url === '/') return '1.0'                    // Página inicial - máxima prioridade
-  if (url.includes('exemplo')) return '0.9'        // Página principal de exemplo
-  if (url.includes('about')) return '0.8'          // Página sobre
+function getPriority(url, pageData) {
+  // Página inicial - máxima prioridade
+  if (url === '/') return '1.0'
+
+  // Se temos dados da página, usar para determinar prioridade
+  if (pageData) {
+    // Páginas de geradores - alta prioridade (ferramentas principais)
+    if (pageData.category === 'generators') return '0.9'
+
+    // Páginas de validadores - alta prioridade (ferramentas úteis)
+    if (pageData.category === 'validators') return '0.8'
+
+    // Páginas principais - alta prioridade
+    if (pageData.category === 'main') return '0.9'
+
+    // Páginas de ferramentas - prioridade média-alta
+    if (pageData.category === 'tools') return '0.8'
+
+    // Páginas de exemplo - prioridade baixa (não são o foco principal)
+    if (pageData.category === 'examples') return '0.6'
+
+    // Keywords específicos que indicam alta prioridade
+    if (pageData.keywords?.some(keyword =>
+      ['gerador', 'generator', 'validador', 'validator', 'cpf', 'cnpj'].includes(keyword)
+    )) return '0.9'
+  }
+
+  // Fallback baseado na URL (para páginas não mapeadas)
   if (url.includes('test')) return '0.5'           // Páginas de teste - baixa prioridade
+  if (url.includes('about')) return '0.8'          // Página sobre
+
   return '0.7'                                     // Outras páginas - prioridade média
 }
 
-function getChangeFreq(url) {
-  if (url === '/') return 'daily'                  // Página inicial muda diariamente
+function getChangeFreq(url, pageData) {
+  // Página inicial muda diariamente
+  if (url === '/') return 'daily'
+
+  // Se temos dados da página, usar para determinar frequência
+  if (pageData) {
+    // Geradores - mudam frequentemente (novas funcionalidades)
+    if (pageData.category === 'generators') return 'weekly'
+
+    // Validadores - mudam menos frequentemente
+    if (pageData.category === 'validators') return 'monthly'
+
+    // Ferramentas - mudam com frequência média
+    if (pageData.category === 'tools') return 'weekly'
+
+    // Páginas principais - mudam com frequência
+    if (pageData.category === 'main') return 'daily'
+
+    // Páginas de exemplo - mudam raramente
+    if (pageData.category === 'examples') return 'yearly'
+  }
+
+  // Fallback baseado na URL
   if (url.includes('test')) return 'yearly'        // Páginas de teste raramente mudam
   if (url.includes('about')) return 'monthly'      // Sobre muda mensalmente
+
   return 'weekly'                                  // Outras páginas mudam semanalmente
 }
+
 
 function generateHreflangTags(allPageContexts, currentPageContext, baseUrl) {
   let hreflangTags = ''

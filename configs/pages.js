@@ -3,11 +3,38 @@ export const pages = [
 
   // Páginas de exemplo
   {
+    key: 'home',
+    label: 'Home',
+    href: '/',
+    category: 'main',
+    keywords: ['home', 'início', 'principal'],
+    show: true,
+    locales: ['pt', 'en', 'es']
+  },
+  {
     key: 'exemplo',
     label: 'Exemplo',
     href: '/exemplo',
     category: 'examples',
     keywords: ['exemplo', 'example', 'demo', 'demonstração'],
+    show: true,
+    locales: ['pt', 'en', 'es']
+  },
+  {
+    key: 'exemploBackup',
+    label: 'Exemplo Backup',
+    href: '/exemploBackup',
+    category: 'examples',
+    keywords: ['exemplo', 'backup', 'example', 'demo', 'demonstração', 'respaldo'],
+    show: true,
+    locales: ['pt', 'en', 'es']
+  },
+  {
+    key: 'aurora',
+    label: 'Aurora',
+    href: '/aurora',
+    category: 'examples',
+    keywords: ['aurora', 'example', 'demo', 'demonstração'],
     show: true,
     locales: ['pt', 'en', 'es']
   },
