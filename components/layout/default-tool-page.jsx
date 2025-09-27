@@ -2,6 +2,9 @@ import * as React from "react"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Share2, Check } from "lucide-react"
+import SeeAlso from "./SeeAlso"
+import { usePageContext } from "@/renderer/usePageContext"
+import { extractPageKey } from "@/lib/metadata"
 
 /**
  * Componente padrão para páginas de ferramentas
@@ -10,10 +13,20 @@ import { Share2, Check } from "lucide-react"
 export function DefaultToolPage({
   title,
   description,
+  feature,
   children,
-  className = ""
+  className = "",
+  showSeeAlso = true,
+  locale = 'pt'
 }) {
   const [isCopied, setIsCopied] = React.useState(false)
+  const pageContext = usePageContext()
+
+  // Extrair currentPageKey automaticamente da URL
+  const currentPageKey = React.useMemo(() => {
+    if (!pageContext?.urlPathname) return null
+    return extractPageKey(pageContext.urlPathname)
+  }, [pageContext?.urlPathname])
 
   const handleShare = async () => {
     try {
@@ -88,12 +101,27 @@ export function DefaultToolPage({
             )}
           </CardHeader>
         </Card>
-        <Card className="mb-5">
-            {children}
-        </Card>
-        <Card className="bg-background">
-            {children}
-        </Card>
+        {feature && (
+          <Card className="mb-5">
+                <CardContent>
+                  {feature}
+                </CardContent>
+          </Card>
+        )}
+        { children && (
+          <Card className="bg-background">
+              {children}
+          </Card>
+        )}
+
+        {/* Componente SeeAlso para páginas relacionadas */}
+        {showSeeAlso && currentPageKey && (
+          <SeeAlso
+            currentPageKey={currentPageKey}
+            locale={locale}
+            maxItems={6}
+          />
+        )}
     </div>
   )
 }

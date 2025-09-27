@@ -7,6 +7,23 @@ import { Button } from '../../components/ui/button'
 
 export { Page }
 
+const feature = (
+  <div className="text-center">
+    <h2 className="text-3xl font-bold text-foreground mb-4">
+      Aqui fica a feature principal da pagina
+    </h2>
+  </div>
+)
+
+const children = (
+  <div className="text-center">
+    <h2 className="text-3xl font-bold text-foreground mb-4">
+      Aqui fica o conteúdo adicional da pagina
+    </h2>
+  </div>
+)
+
+
 function Page() {
   const pageContext = usePageContext()
   const { t, loading, locale: currentLocale } = useTranslation()
@@ -33,6 +50,9 @@ function Page() {
     <DefaultToolPage
       title={t('title')}
       description={t('description')}
+      feature={feature}
+      children={children}
+      locale={currentLocale}
     >
 
     </DefaultToolPage>
