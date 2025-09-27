@@ -48,6 +48,60 @@ async function startServer() {
   // Other middlewares (e.g. some RPC middleware such as Telefunc)
   // ...
 
+  // Robots.txt dinâmico para SEO
+  app.get('/robots.txt', (req, res) => {
+    res.type('text/plain')
+    res.send(`# robots.txt otimizado para SEO - 4generate
+# Gerado dinamicamente para máxima eficiência de indexação
+
+User-agent: *
+Allow: /
+
+# Bloquear arquivos de desenvolvimento/build
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /server/
+Disallow: /renderer/
+
+# Bloquear arquivos de configuração
+Disallow: /*.json$
+Disallow: /*.js.map$
+Disallow: /*.css.map$
+Disallow: /*.config.js$
+Disallow: /*.config.json$
+
+# Bloquear APIs e endpoints internos
+Disallow: /api/
+Disallow: /_vite/
+Disallow: /__vite_ping
+
+# Bloquear arquivos temporários
+Disallow: /*.tmp$
+Disallow: /*.cache$
+Disallow: /*.backup$
+
+# Configurações específicas para bots principais
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear bots de spam
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap
+Sitemap: ${process.env.SITE_URL || 'https://seudominio.com'}/sitemap.xml`)
+  })
+
   // Vite-plugin-ssr middleware. It should always be our last middleware (because it's a
   // catch-all middleware superseding any middleware placed after it).
   app.get('*', async (req, res, next) => {

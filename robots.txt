@@ -1,0 +1,128 @@
+# robots.txt otimizado para SEO - 4generate
+# Gerado automaticamente para máxima eficiência de indexação
+
+# ===========================================
+# CONFIGURAÇÃO PARA TODOS OS BOTS
+# ===========================================
+User-agent: *
+Allow: /
+
+# ===========================================
+# BLOQUEIOS IMPORTANTES PARA SEO
+# ===========================================
+
+# Bloquear arquivos de desenvolvimento/build
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /server/
+Disallow: /renderer/
+
+# Bloquear arquivos de configuração e sistema
+Disallow: /*.json$
+Disallow: /*.js.map$
+Disallow: /*.css.map$
+Disallow: /*.ts$
+Disallow: /*.tsx$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.config.js$
+Disallow: /*.config.json$
+
+# Bloquear APIs e endpoints internos
+Disallow: /api/
+Disallow: /_vite/
+Disallow: /__vite_ping
+
+# Bloquear arquivos temporários e cache
+Disallow: /temp/
+Disallow: /cache/
+Disallow: /tmp/
+Disallow: /*.tmp$
+Disallow: /*.cache$
+
+# Bloquear arquivos de backup
+Disallow: /*.backup$
+Disallow: /*.bak$
+Disallow: /backup/
+
+# ===========================================
+# CONFIGURAÇÕES ESPECÍFICAS POR BOT
+# ===========================================
+
+# Google - permitir tudo que é público
+User-agent: Googlebot
+Allow: /
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /api/
+
+# Bing - mesma configuração do Google
+User-agent: Bingbot
+Allow: /
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /api/
+
+# Yandex - otimizado para mercado russo
+User-agent: YandexBot
+Allow: /
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /api/
+
+# Baidu - otimizado para mercado chinês
+User-agent: Baiduspider
+Allow: /
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /api/
+
+# ===========================================
+# BLOQUEAR BOTS MALICIOSOS/SPAM
+# ===========================================
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# ===========================================
+# CONFIGURAÇÕES DE CRAWL DELAY
+# ===========================================
+
+# Crawl delay para bots agressivos (em segundos)
+Crawl-delay: 1
+
+# ===========================================
+# SITEMAPS - CRÍTICO PARA SEO
+# ===========================================
+
+# Sitemap principal (gerado automaticamente)
+Sitemap: https://seudominio.com/sitemap.xml
+
+# Sitemaps adicionais se necessário
+# Sitemap: https://seudominio.com/sitemap-images.xml
+# Sitemap: https://seudominio.com/sitemap-news.xml
+
+# ===========================================
+# INFORMAÇÕES ADICIONAIS
+# ===========================================
+
+# Este robots.txt foi otimizado para:
+# - Máxima indexação de conteúdo público
+# - Proteção de arquivos de sistema
+# - SEO internacional (pt-BR, en-US, es-ES)
+# - Performance de crawling
+# - Prevenção de spam bots
