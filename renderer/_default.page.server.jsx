@@ -112,6 +112,21 @@ async function render(pageContext) {
         ${dangerouslySkipEscape(xDefaultTag)}
         <title>${title}</title>
         ${dangerouslySkipEscape(schemas.map(schema => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`).join('\n        '))}
+        
+        {/* Google Analytics */}
+          <>
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELC2QVC7VF"></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-ELC2QVC7VF');
+                `,
+              }}
+            />
+          </>
       </head>
       <body>
         <div id="react-root">${dangerouslySkipEscape(pageHtml)}</div>
