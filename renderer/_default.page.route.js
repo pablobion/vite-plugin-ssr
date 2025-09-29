@@ -11,9 +11,10 @@ function onBeforeRoute(pageContext) {
 
   // Se deve redirecionar (usuário acessou sem idioma), fazer redirecionamento
   if (shouldRedirect) {
+    const redirectUrl = `/${locale}${urlWithoutLocale}`
     return {
       pageContext: {
-        redirect: `/${locale}${urlWithoutLocale}`
+        redirect: redirectUrl
       }
     }
   }

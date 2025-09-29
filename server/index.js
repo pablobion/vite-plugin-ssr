@@ -48,6 +48,11 @@ async function startServer() {
   // Other middlewares (e.g. some RPC middleware such as Telefunc)
   // ...
 
+  // Middleware de redirecionamento para idiomas - apenas para rota raiz
+  app.get('/', (req, res) => {
+    res.redirect(301, '/pt')
+  })
+
   // Robots.txt dinâmico para SEO
   app.get('/robots.txt', (req, res) => {
     res.type('text/plain')
