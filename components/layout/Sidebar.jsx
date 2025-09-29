@@ -50,7 +50,7 @@ export default function Sidebar({ isCollapsed }) {
           href={`/${locale}`}
           className="text-xl font-bold text-foreground hover:text-muted-foreground transition-colors"
         >
-          4generate
+          4generate | ${locale}
         </Link>
         <ThemeToggle />
       </div>
