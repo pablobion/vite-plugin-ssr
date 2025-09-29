@@ -61,6 +61,19 @@ function PageShell({ pageContext, children }) {
           }
         `
       }} />
+      
+      {/* Google Analytics - apenas no cliente */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELC2QVC7VF"></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ELC2QVC7VF');
+          `,
+        }}
+      />
       <ThemeProvider>
         <PageContextProvider pageContext={pageContext}>
           <Layout>

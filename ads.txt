@@ -1,0 +1,37 @@
+# ads.txt para 4generate
+# Arquivo de autorização de vendedores de anúncios
+# Para combater fraudes em publicidade programática
+
+# ===========================================
+# VENDEDORES AUTORIZADOS - GOOGLE ADSENSE
+# ===========================================
+
+# Google AdSense - vendedor direto
+google.com, pub-3072791363291151, DIRECT, f08c47fec0942fa0
+
+# Google Ad Manager - vendedor direto  
+google.com, pub-3072791363291151, DIRECT, f08c47fec0942fa0
+
+
+
+# ===========================================
+# INSTRUÇÕES IMPORTANTES
+# ===========================================
+
+# IMPORTANTE: Substitua os IDs de exemplo (0000000000000000) pelos seus IDs reais
+# Este arquivo deve ser hospedado em: https://seudominio.com/ads.txt
+# 
+# Para configurar corretamente:
+# 1. Obtenha seus IDs reais de cada plataforma de anúncios
+# 2. Substitua os IDs de exemplo pelos reais
+# 3. Adicione apenas vendedores que você realmente autoriza
+# 4. Mantenha este arquivo atualizado
+#
+# Vendedores comuns no Brasil:
+# - Google AdSense/Ad Manager
+#
+# Este arquivo ajuda a:
+# - Autorizar vendedores legítimos
+# - Combater fraudes em anúncios
+# - Melhorar transparência no ecossistema de anúncios
+# - Proteger sua receita publicitária
