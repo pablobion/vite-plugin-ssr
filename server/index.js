@@ -106,10 +106,18 @@ Sitemap: ${process.env.SITE_URL || 'https://seudominio.com'}/sitemap.xml`)
   // catch-all middleware superseding any middleware placed after it).
   app.get('*', async (req, res, next) => {
     const pageContextInit = {
-      urlOriginal: req.originalUrl
+      urlOriginal: req.originalUrl,
+      // Passar headers para detecção de idioma
+      headers: req.headers
     }
     const pageContext = await renderPage(pageContextInit)
     const { httpResponse } = pageContext
+    
+    // Verificar se é um redirecionamento
+    if (pageContext.redirect) {
+      return res.redirect(301, pageContext.urlOriginal)
+    }
+    
     if (!httpResponse) {
       return next()
     } else {

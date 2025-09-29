@@ -74,6 +74,66 @@ function PageShell({ pageContext, children }) {
           `,
         }}
       />
+      
+      {/* Detector de idioma - apenas no cliente */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              'use strict';
+              
+              function checkCurrentLanguage() {
+                const currentPath = window.location.pathname;
+                const pathSegments = currentPath.split('/').filter(Boolean);
+                const firstSegment = pathSegments[0];
+                
+                // Se já tem idioma na URL, não fazer nada
+                if (['pt', 'en', 'es'].includes(firstSegment)) {
+                  return;
+                }
+                
+                // Detectar idioma preferido do usuário
+                const userLanguage = detectBrowserLanguage();
+                
+                // Redirecionar para o idioma correto
+                if (userLanguage !== 'pt') {
+                  window.location.href = \`/\${userLanguage}\${currentPath}\`;
+                } else if (currentPath !== '/pt' && currentPath !== '/') {
+                  // Se é português e não está na raiz, redirecionar para /pt
+                  window.location.href = \`/pt\${currentPath}\`;
+                }
+              }
+              
+              function detectBrowserLanguage() {
+                // Prioridade 1: Idioma salvo no localStorage
+                const savedLanguage = localStorage.getItem('preferred-language');
+                if (savedLanguage && ['pt', 'en', 'es'].includes(savedLanguage)) {
+                  return savedLanguage;
+                }
+                
+                // Prioridade 2: Idioma do navegador
+                const browserLanguage = navigator.language || navigator.userLanguage;
+                const languageCode = browserLanguage.split('-')[0];
+                
+                if (['pt', 'en', 'es'].includes(languageCode)) {
+                  // Salvar preferência
+                  localStorage.setItem('preferred-language', languageCode);
+                  return languageCode;
+                }
+                
+                // Prioridade 3: Idioma padrão (pt-BR)
+                return 'pt';
+              }
+              
+              // Executar apenas se não estamos no servidor
+              if (typeof window !== 'undefined') {
+                // Aguardar um pouco para evitar conflitos com hidratação
+                setTimeout(checkCurrentLanguage, 100);
+              }
+            })();
+          `,
+        }}
+      />
       <ThemeProvider>
         <PageContextProvider pageContext={pageContext}>
           <Layout>
