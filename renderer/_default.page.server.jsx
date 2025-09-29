@@ -27,6 +27,16 @@ function onBeforePrerender(prerenderContext) {
         locale
       })
     })
+    
+    // 🚀 CORREÇÃO 404: Adicionar página raiz (/) para produção
+    // Se for a página inicial, também gerar versão sem locale
+    if (pageContext.urlOriginal === '/') {
+      pageContexts.push({
+        ...pageContext,
+        urlOriginal: '/',
+        locale: localeDefault // Usar português como padrão
+      })
+    }
   })
 
   // Gerar sitemap XML automaticamente
