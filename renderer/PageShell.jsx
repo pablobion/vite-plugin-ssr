@@ -75,6 +75,13 @@ function PageShell({ pageContext, children }) {
         }}
       />
       
+      {/* Google AdSense - apenas no cliente */}
+      <script 
+        async 
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3072791363291151" 
+        crossOrigin="anonymous"
+      />
+      
       {/* Detector de idioma - apenas no cliente */}
       <script
         dangerouslySetInnerHTML={{
