@@ -48,10 +48,9 @@ async function startServer() {
   // Other middlewares (e.g. some RPC middleware such as Telefunc)
   // ...
 
-  // Middleware de redirecionamento para idiomas - apenas para rota raiz
-  app.get('/', (req, res) => {
-    res.redirect(301, '/pt')
-  })
+  // Removido o middleware de redirecionamento automático para permitir 
+  // mudança de locale sem redirect na página inicial
+  // O locale será detectado automaticamente pelo onBeforeRoute
 
   // Robots.txt dinâmico para SEO
   app.get('/robots.txt', (req, res) => {
