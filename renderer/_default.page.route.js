@@ -4,14 +4,27 @@ const supportedLocales = ['pt', 'en', 'es']
 const defaultLocale = 'pt'
 
 function onBeforeRoute(pageContext) {
+  const url = pageContext.urlOriginal
+  
+  // 🚀 OTIMIZAÇÃO LCP: Para página inicial, usar locale padrão sem processamento
+  // Elimina processamento de headers Accept-Language que pode afetar performance em mobile
+  if (url === '/') {
+    return {
+      pageContext: {
+        locale: defaultLocale, // Usar português como padrão para máxima velocidade
+        urlOriginal: '/'
+      }
+    }
+  }
+  
+  // Para outras páginas, manter lógica original com detecção de idioma
   const { urlWithoutLocale, locale, shouldRedirect } = extractLocale(
     pageContext.urlOriginal, 
     pageContext.headers
   )
 
   // Se deve redirecionar (usuário acessou sem idioma), fazer redirecionamento
-  // MAS não redirecionar se estiver na página inicial (/)
-  if (shouldRedirect && urlWithoutLocale !== '/') {
+  if (shouldRedirect) {
     const redirectUrl = `/${locale}${urlWithoutLocale}`
     return {
       pageContext: {
