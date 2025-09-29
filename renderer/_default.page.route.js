@@ -13,8 +13,7 @@ function onBeforeRoute(pageContext) {
   if (shouldRedirect) {
     return {
       pageContext: {
-        urlOriginal: `/${locale}${urlWithoutLocale}`,
-        redirect: true
+        redirect: `/${locale}${urlWithoutLocale}`
       }
     }
   }

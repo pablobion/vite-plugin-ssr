@@ -115,7 +115,7 @@ Sitemap: ${process.env.SITE_URL || 'https://seudominio.com'}/sitemap.xml`)
     
     // Verificar se é um redirecionamento
     if (pageContext.redirect) {
-      return res.redirect(301, pageContext.urlOriginal)
+      return res.redirect(301, pageContext.redirect)
     }
     
     if (!httpResponse) {
