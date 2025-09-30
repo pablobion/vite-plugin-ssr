@@ -16,7 +16,6 @@ export default {
     rollupOptions: {
       output: {
         manualChunks: {
-          ui: ['lucide-react'],
           utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
         }
       }
