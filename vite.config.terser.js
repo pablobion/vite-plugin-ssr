@@ -16,7 +16,7 @@ export default {
     rollupOptions: {
       output: {
         manualChunks: {
-          ui: ['@radix-ui/react-slot', 'lucide-react'],
+          ui: ['lucide-react'],
           utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
         }
       }
