@@ -92,7 +92,7 @@ function groupPagesByBaseUrl(pageContexts) {
 }
 
 function generateOptimizedSitemapContent(pagesByBaseUrl) {
-  const baseUrl = 'https://seudominio.com'
+  const baseUrl = process.env.SITE_URL || 'https://4generate.com'
   const currentDate = new Date().toISOString()
   const totalPages = Object.values(pagesByBaseUrl).flat().length
 
@@ -113,6 +113,7 @@ function generateOptimizedSitemapContent(pagesByBaseUrl) {
 
       const priority = getPriority(baseUrlPath, pageData)
       const changeFreq = getChangeFreq(baseUrlPath, pageData)
+      const lastmod = getLastModForPage(baseUrlPath, pageData)
 
       // Adicionar comentário com keywords se disponível
       const keywordsComment = pageData?.keywords ?
@@ -120,7 +121,7 @@ function generateOptimizedSitemapContent(pagesByBaseUrl) {
 
       sitemap += `  <url>
     <loc>${baseUrl}${pageContext.urlOriginal}</loc>
-    <lastmod>${currentDate}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${changeFreq}</changefreq>
     <priority>${priority}</priority>
 ${keywordsComment}
@@ -163,13 +164,14 @@ function getPriority(url, pageData) {
 
     // Keywords específicos que indicam alta prioridade
     if (pageData.keywords?.some(keyword =>
-      ['gerador', 'generator', 'validador', 'validator', 'cpf', 'cnpj'].includes(keyword)
+      ['gerador', 'generator', 'validador', 'validator', 'cpf', 'cnpj', 'rg', 'pis'].includes(keyword)
     )) return '0.9'
   }
 
   // Fallback baseado na URL (para páginas não mapeadas)
   if (url.includes('test')) return '0.5'           // Páginas de teste - baixa prioridade
   if (url.includes('about')) return '0.8'          // Página sobre
+  if (url.includes('components')) return '0.7'     // Componentes
 
   return '0.7'                                     // Outras páginas - prioridade média
 }
@@ -201,6 +203,24 @@ function getChangeFreq(url, pageData) {
   if (url.includes('about')) return 'monthly'      // Sobre muda mensalmente
 
   return 'weekly'                                  // Outras páginas mudam semanalmente
+}
+
+function getLastModForPage(url, pageData) {
+  // Para páginas específicas, pode usar datas diferentes baseadas no tipo
+  const now = new Date()
+  
+  // Páginas de ferramentas podem ter lastmod mais recente
+  if (pageData?.category === 'generators' || pageData?.category === 'validators') {
+    return now.toISOString()
+  }
+  
+  // Páginas de exemplo podem ter lastmod mais antigo
+  if (pageData?.category === 'examples') {
+    const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000)
+    return oneWeekAgo.toISOString()
+  }
+  
+  return now.toISOString()
 }
 
 

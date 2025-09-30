@@ -59,7 +59,7 @@ export default function SeeAlso({ currentPageKey, locale = 'pt', maxItems = 6 })
           <div key={page.key}>
             <Link
               href={page.href}
-              className="text-sm text-foreground hover:text-primary transition-colors block py-1"
+              className="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors block py-1"
             >
               {page.label}
             </Link>

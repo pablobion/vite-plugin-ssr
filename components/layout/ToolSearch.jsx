@@ -121,7 +121,7 @@ export default function ToolSearch() {
   };
 
   return (
-    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-[28rem] h-10 sm:h-12" ref={searchRef}>
+    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-10 sm:h-12" ref={searchRef}>
       {/* Input de busca */}
       <div className="relative w-full">
         <div className="absolute inset-y-0 left-0 pl-2 sm:pl-3 flex items-center pointer-events-none">

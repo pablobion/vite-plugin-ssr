@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense, lazy } from 'react'
 import PropTypes from 'prop-types'
 import '../input.css'
 import '../test-tailwind.css'
@@ -8,6 +8,21 @@ import Sidebar from '../components/layout/Sidebar'
 import Header from '../components/layout/Header'
 import { ThemeProvider } from '../components/layout/ThemeContext'
 import { BreadcrumbNav } from '../components/layout/BreadcrumbNav'
+
+// Lazy loading para componentes pesados
+const Footer = lazy(() => import('../components/layout/Footer'))
+
+// Componente de loading para Suspense
+function LoadingFallback({ message = 'Carregando...' }) {
+  return (
+    <div className="flex items-center justify-center p-8">
+      <div className="flex items-center space-x-2">
+        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
+        <span className="text-sm text-muted-foreground">{message}</span>
+      </div>
+    </div>
+  )
+}
 
 export { PageShell }
 
@@ -144,11 +159,16 @@ function PageShell({ pageContext, children }) {
       <ThemeProvider>
         <PageContextProvider pageContext={pageContext}>
           <Layout>
-            <Sidebar isCollapsed={isCollapsed} />
-            <div className="flex flex-col flex-1">
-              <Header isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
-              <Content>{children}</Content>
+            <div className="flex flex-1">
+              <Sidebar isCollapsed={isCollapsed} />
+              <div className="flex flex-col flex-1">
+                <Header isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
+                <Content>{children}</Content>
+              </div>
             </div>
+            <Suspense fallback={<LoadingFallback message="Carregando rodapé..." />}>
+              <Footer locale={pageContext?.locale || 'pt'} />
+            </Suspense>
           </Layout>
         </PageContextProvider>
       </ThemeProvider>
@@ -161,7 +181,7 @@ Layout.propTypes = {
 }
 function Layout({ children }) {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col h-screen overflow-x-hidden">
       {children}
     </div>
   )
@@ -173,10 +193,12 @@ Content.propTypes = {
 }
 function Content({ children }) {
   return (
-    <div className="flex-1 min-h-[calc(100vh-64px)]">
-      <div className="bg-blue-300/20 dark:bg-background flex flex-col">
+    <div className="flex-1 flex flex-col h-full">
+      <div className="bg-blue-300/20 dark:bg-background flex flex-col flex-1">
         <BreadcrumbNav />
-        {children}
+        <div className="flex-1 overflow-y-auto">
+          {children}
+        </div>
       </div>
     </div>
   )

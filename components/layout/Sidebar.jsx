@@ -39,11 +39,12 @@ export default function Sidebar({ isCollapsed }) {
   }
 
   return (
-    <div className={`bg-background dark:bg-secondary bg-secondary border-r border-border flex flex-col h-screen transition-all duration-300 ${
+    <div className={`bg-background dark:bg-secondary bg-secondary border-r border-border flex flex-col h-full transition-all duration-300 ${
       isCollapsed
         ? 'w-0 overflow-hidden p-0'
-        : 'w-72 sm:w-64 p-4'
+        : 'w-72 sm:w-64'
     }`}>
+      <div className="p-4 h-full flex flex-col">
       {/* Logo */}
       <div className="mb-4 flex items-center justify-between">
         <Link
@@ -123,6 +124,7 @@ export default function Sidebar({ isCollapsed }) {
           </div>
         ))}
       </nav>
+      </div>
     </div>
   )
 }

@@ -1,5 +1,8 @@
 import { usePageContext } from '../../renderer/usePageContext'
-import ToolSearch from './ToolSearch'
+import { lazy, Suspense } from 'react'
+
+// Lazy loading para ToolSearch (só carrega quando necessário)
+const ToolSearch = lazy(() => import('./ToolSearch'))
 
 export default function Header({ isCollapsed, toggleSidebar }) {
   const pageContext = usePageContext()
@@ -29,7 +32,7 @@ export default function Header({ isCollapsed, toggleSidebar }) {
           </svg>
         </button>
         {/* Navegação central - só aparece em telas grandes */}
-        <nav className="hidden lg:flex flex justify-end space-x-6 xl:space-x-8 w-full mr-20">
+        <nav className="hidden lg:flex flex justify-end space-x-6 xl:space-x-8 w-full mr-4">
           <a
             href={`/${locale}`}
             className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
@@ -52,7 +55,11 @@ export default function Header({ isCollapsed, toggleSidebar }) {
 
         {/* ToolSearch - responsivo */}
         <div className="flex-1 lg:flex-none lg:pr-4 ml-2 lg:ml-0">
-          <ToolSearch />
+          <Suspense fallback={
+            <div className="w-full max-w-xs h-10 bg-secondary/50 rounded-md animate-pulse"></div>
+          }>
+            <ToolSearch />
+          </Suspense>
         </div>
       </div>
     </header>

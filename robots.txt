@@ -110,7 +110,7 @@ Crawl-delay: 1
 # ===========================================
 
 # Sitemap principal (gerado automaticamente)
-Sitemap: https://seudominio.com/sitemap.xml
+Sitemap: https://4generate.com/sitemap.xml
 
 # Sitemaps adicionais se necessário
 # Sitemap: https://seudominio.com/sitemap-images.xml

@@ -2,9 +2,11 @@ import * as React from "react"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Share2, Check } from "lucide-react"
-import SeeAlso from "./SeeAlso"
 import { usePageContext } from "@/renderer/usePageContext"
 import { extractPageKey } from "@/lib/metadata"
+
+// Lazy loading para componentes pesados
+const SeeAlso = React.lazy(() => import("./SeeAlso"))
 
 /**
  * Componente padrão para páginas de ferramentas
@@ -59,7 +61,7 @@ export function DefaultToolPage({
   }
 
   return (
-    <div className={`min-h-screen ${className} min-w-full`}>
+    <div className={`${className} w-full px-[20%] max-w-none pb-10`}>
         <Card className="mb-5">
           <CardHeader>
             {/* Título com botão de compartilhar na mesma linha */}
@@ -76,7 +78,7 @@ export function DefaultToolPage({
                 className={`flex items-center gap-2 transition-all duration-300 ${
                   isCopied
                     ? 'bg-green-100 border-green-300 text-green-700 dark:bg-green-900/20 dark:border-green-700 dark:text-green-400'
-                    : 'hover:bg-accent hover:text-accent-foreground'
+                    : 'bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white border-purple-500 hover:border-purple-600 shadow-lg hover:shadow-xl'
                 }`}
               >
                 {isCopied ? (
@@ -102,25 +104,34 @@ export function DefaultToolPage({
           </CardHeader>
         </Card>
         {feature && (
-          <Card className="mb-5">
+          <Card className="mb-5 bg-gradient-to-br from-white to-gray-50 shadow-xl hover:shadow-2xl dark:from-background dark:to-secondary/50 dark:shadow-lg dark:hover:shadow-xl">
                 <CardContent>
                   {feature}
                 </CardContent>
           </Card>
         )}
         { children && (
-          <Card className="bg-background">
+          <Card className="bg-gray-100/50 border-gray-200/30 shadow-sm dark:bg-secondary/30 dark:border-border/50">
               {children}
           </Card>
         )}
 
         {/* Componente SeeAlso para páginas relacionadas */}
         {showSeeAlso && currentPageKey && (
-          <SeeAlso
-            currentPageKey={currentPageKey}
-            locale={locale}
-            maxItems={6}
-          />
+          <React.Suspense fallback={
+            <div className="flex items-center justify-center p-4">
+              <div className="flex items-center space-x-2">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
+                <span className="text-sm text-muted-foreground">Carregando páginas relacionadas...</span>
+              </div>
+            </div>
+          }>
+            <SeeAlso
+              currentPageKey={currentPageKey}
+              locale={locale}
+              maxItems={6}
+            />
+          </React.Suspense>
         )}
     </div>
   )

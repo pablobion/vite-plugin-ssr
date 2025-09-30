@@ -7,6 +7,7 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from '../ui/breadcrumb'
+import { pages } from '../../configs/pages.js'
 
 export function BreadcrumbNav() {
   const pageContext = usePageContext()
@@ -38,7 +39,7 @@ export function BreadcrumbNav() {
       const isLast = index === pathSegments.length - 1
 
       breadcrumbs.push({
-        label: formatSegmentLabel(segment),
+        label: getSegmentLabel(segment),
         href: `/${locale || 'pt'}${currentPath}`,
         isCurrent: isLast
       })
@@ -47,19 +48,17 @@ export function BreadcrumbNav() {
     return breadcrumbs
   }
 
-  // Função para formatar o label do segmento
-  const formatSegmentLabel = (segment) => {
-    // Mapear segmentos conhecidos para labels mais amigáveis
-    const segmentMap = {
-      'exemplo': 'Exemplo',
-      'exemploBackup': 'Exemplo Backup',
-      'aurora': 'Aurora',
-      'components': 'Componentes',
-      'about': 'Sobre',
-      'gerador-cpf': 'Gerador de CPF'
+  // Função para obter o label do segmento baseado no pages.js
+  const getSegmentLabel = (segment) => {
+    // Buscar a página no pages.js baseado no segmento
+    const pageData = pages.find(page => page.key === segment)
+    
+    if (pageData) {
+      return pageData.label
     }
-
-    return segmentMap[segment] || segment.charAt(0).toUpperCase() + segment.slice(1)
+    
+    // Fallback: capitalizar primeira letra se não encontrar no pages.js
+    return segment.charAt(0).toUpperCase() + segment.slice(1)
   }
 
   const breadcrumbs = generateBreadcrumbs()
@@ -70,7 +69,7 @@ export function BreadcrumbNav() {
   }
 
   return (
-    <div className="container mx-auto py-2 pl-2">
+    <div className="container mx-[20%] py-5 pl-2">
       <Breadcrumb>
         <BreadcrumbList>
           {breadcrumbs.map((breadcrumb, index) => (

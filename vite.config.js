@@ -7,9 +7,29 @@ export default {
     react(),
     ssr({
       prerender: true,
-      passToClient: ['locale', 'isLocaleSupported', 'pagePath']
+      passToClient: ['locale', 'isLocaleSupported', 'pagePath'],
+      prefetchStaticAssets: 'viewport'
     })
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['@radix-ui/react-slot', 'lucide-react'],
+          utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
+  },
   css: {
     postcss: './postcss.config.js'
   },

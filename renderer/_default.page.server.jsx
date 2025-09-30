@@ -77,17 +77,20 @@ async function render(pageContext) {
   const desc = (documentProps && documentProps.description) || pageMetas.description
   const keywords = (documentProps && documentProps.keywords) || pageMetas.keywords
 
+  // Definir domínio baseado em variável de ambiente
+  const siteUrl = process.env.SITE_URL || 'https://4generate.com'
+  
   // Definir idioma do HTML baseado no locale
   const lang = locale === 'pt' ? 'pt-BR' : locale === 'en' ? 'en-US' : 'es-ES'
 
   // Gerar tags hreflang para SEO internacional
   const hreflangTags = locales.map(loc => {
     const hreflangLang = loc === 'pt' ? 'pt-BR' : loc === 'en' ? 'en-US' : 'es-ES'
-    return `<link rel="alternate" hreflang="${hreflangLang}" href="https://seudominio.com/${loc}${pageContext.urlOriginal}" />`
+    return `<link rel="alternate" hreflang="${hreflangLang}" href="${siteUrl}/${loc}${pageContext.urlOriginal}" />`
   }).join('\n        ')
 
   // Adicionar tag hreflang x-default para idioma padrão
-  const xDefaultTag = `<link rel="alternate" hreflang="x-default" href="https://seudominio.com/${localeDefault}${pageContext.urlOriginal}" />`
+  const xDefaultTag = `<link rel="alternate" hreflang="x-default" href="${siteUrl}/${localeDefault}${pageContext.urlOriginal}" />`
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="${lang}">
@@ -100,23 +103,23 @@ async function render(pageContext) {
         <meta name="language" content="${locale}" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
-        <link rel="canonical" href="https://seudominio.com/${locale}${pageContext.urlOriginal}" />
+        <link rel="canonical" href="${siteUrl}/${locale}${pageContext.urlOriginal}" />
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://seudominio.com/${locale}${pageContext.urlOriginal}" />
+        <meta property="og:url" content="${siteUrl}/${locale}${pageContext.urlOriginal}" />
         <meta property="og:title" content="${title}" />
         <meta property="og:description" content="${desc}" />
-        <meta property="og:image" content="https://seudominio.com/og-image.jpg" />
+        <meta property="og:image" content="${siteUrl}/og-image.jpg" />
         <meta property="og:site_name" content="4generate" />
         <meta property="og:locale" content="${lang}" />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://seudominio.com/${locale}${pageContext.urlOriginal}" />
+        <meta property="twitter:url" content="${siteUrl}/${locale}${pageContext.urlOriginal}" />
         <meta property="twitter:title" content="${title}" />
         <meta property="twitter:description" content="${desc}" />
-        <meta property="twitter:image" content="https://seudominio.com/og-image.jpg" />
+        <meta property="twitter:image" content="${siteUrl}/og-image.jpg" />
         <meta property="twitter:site" content="@4generate" />
         ${dangerouslySkipEscape(hreflangTags)}
         ${dangerouslySkipEscape(xDefaultTag)}
