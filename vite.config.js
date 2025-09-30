@@ -12,13 +12,6 @@ export default {
     })
   ],
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
-        }
-      }
-    },
     chunkSizeWarningLimit: 1000,
     minify: 'esbuild' // Usar esbuild (padrão do Vite) em vez de terser
   },
