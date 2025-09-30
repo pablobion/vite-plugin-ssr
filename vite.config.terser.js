@@ -1,7 +1,8 @@
 import react from '@vitejs/plugin-react'
 import ssr from 'vite-plugin-ssr/plugin'
-import path from 'path'   // <-- aqui está o que faltava
+import path from 'path'
 
+// Configuração alternativa com terser (requer: npm install -D terser)
 export default {
   plugins: [
     react(),
@@ -22,7 +23,20 @@ export default {
       }
     },
     chunkSizeWarningLimit: 1000,
-    minify: 'esbuild' // Usar esbuild (padrão do Vite) em vez de terser
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn']
+      },
+      mangle: {
+        safari10: true
+      },
+      format: {
+        comments: false
+      }
+    }
   },
   css: {
     postcss: './postcss.config.js'
@@ -33,3 +47,8 @@ export default {
     },
   }
 }
+
+// Para usar esta configuração:
+// 1. npm install -D terser
+// 2. Renomear vite.config.js para vite.config.esbuild.js
+// 3. Renomear vite.config.terser.js para vite.config.js
