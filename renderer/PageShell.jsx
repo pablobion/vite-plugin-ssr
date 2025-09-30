@@ -174,7 +174,7 @@ Content.propTypes = {
 function Content({ children }) {
   return (
     <div className="flex-1 min-h-[calc(100vh-64px)]">
-      <div className="bg-blue-300/20 dark:bg-background flex flex-col justify-center items-center p-3 lg:px-80">
+      <div className="bg-blue-300/20 dark:bg-background flex flex-col">
         <BreadcrumbNav />
         {children}
       </div>
