@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { usePageContext } from '../../renderer/usePageContext'
+import { usePageContext } from '../../lib/hooks/usePageContext'
 import { Button } from '../../components/ui/button.jsx'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../../components/ui/card.jsx'
 

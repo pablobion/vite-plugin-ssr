@@ -28,7 +28,7 @@ function Page() {
           </h1>
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full">
             <svg className="w-4 h-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <p className="text-sm text-muted-foreground">
               {t('lastUpdate')}
@@ -36,7 +36,7 @@ function Page() {
           </div>
         </div>
 
-        {/* Conteúdo dos Termos */}
+        {/* Conteúdo da Política de Cookies */}
         <div className="prose prose-lg max-w-none">
           {Array.isArray(sections) && sections.map((section, index) => (
             <div key={index} className="mb-8">
@@ -60,4 +60,3 @@ function Page() {
     </div>
   )
 }
-

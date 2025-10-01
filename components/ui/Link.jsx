@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { usePageContext } from '../../renderer/usePageContext'
+import { usePageContext } from '../../lib/hooks/usePageContext'
 
 export { Link }
 

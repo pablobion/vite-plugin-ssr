@@ -31,7 +31,7 @@ export function useTranslation(pagePath) {
     
     setLoading(true)
     // Tentar carregar traduções dinamicamente no client-side
-    import(`../pages/${pagePath}/translations/${locale}.json`)
+    import(`../../pages/${pagePath}/translations/${locale}.json`)
       .then(module => {
         setCurrentTranslations(module.default)
       })
@@ -72,4 +72,31 @@ export function useTranslation(pagePath) {
   }
 
   return { t, locale, loading }
+}
+
+// Hook para import estático de traduções
+export function useTranslationStatic(translations) {
+  const pageContext = usePageContext()
+  const locale = pageContext?.locale || 'pt'
+
+  const t = (key) => {
+    try {
+      const keys = key.split('.')
+      let value = translations[locale]
+      
+      for (const k of keys) {
+        if (value && typeof value === 'object' && k in value) {
+          value = value[k]
+        } else {
+          return key
+        }
+      }
+      
+      return value
+    } catch (error) {
+      return key
+    }
+  }
+
+  return { t, locale }
 }

@@ -30,6 +30,24 @@ export const pages = [
     locales: ['pt', 'en', 'es']
   },
   {
+    key: 'privacy',
+    label: 'Política de Privacidade',
+    href: '/privacy',
+    category: 'main',
+    keywords: ['privacidade', 'privacy', 'política', 'policy', 'dados', 'data', 'LGPD', 'GDPR'],
+    show: false,
+    locales: ['pt', 'en', 'es']
+  },
+  {
+    key: 'cookies',
+    label: 'Política de Cookies',
+    href: '/cookie-policy',
+    category: 'main',
+    keywords: ['cookies', 'política', 'policy', 'tecnologias', 'technologies', 'rastreamento', 'tracking'],
+    show: false,
+    locales: ['pt', 'en', 'es']
+  },
+  {
     key: 'exemplo',
     label: 'Exemplo',
     href: '/exemplo',

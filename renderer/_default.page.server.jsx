@@ -6,7 +6,7 @@ import ReactDOMServer from 'react-dom/server'
 import { PageShell } from './PageShell'
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server'
 import logoUrl from './logo.svg'
-import { generateSitemapXML } from './sitemap-generator.js'
+import { generateSitemapXML } from '../lib/sitemap-generator.js'
 import { getPageData, generatePageMetas, generateAllSchemas } from '../lib/metadata'
 
 const locales = ['pt', 'en', 'es']

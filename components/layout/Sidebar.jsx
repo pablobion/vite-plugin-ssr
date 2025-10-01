@@ -1,5 +1,5 @@
 import { Link } from '../ui/Link'
-import { usePageContext } from '../../renderer/usePageContext'
+import { usePageContext } from '../../lib/hooks/usePageContext'
 import { getPagesByCategory, categories } from '../../configs/pages'
 import ThemeToggle from './ThemeToggle'
 import { useTheme } from './ThemeContext'

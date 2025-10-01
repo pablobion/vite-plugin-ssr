@@ -1,4 +1,4 @@
-import { usePageContext } from '../../renderer/usePageContext'
+import { usePageContext } from '../../lib/hooks/usePageContext'
 import {
   Breadcrumb,
   BreadcrumbList,

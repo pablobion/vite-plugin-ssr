@@ -1,11 +1,21 @@
-import { usePageContext } from '../../renderer/usePageContext'
-import { useTranslation } from '../../renderer/useTranslation'
+import { useTranslationStatic } from '../../lib/hooks/useTranslation'
 import { navigate } from 'vite-plugin-ssr/client/router'
 import { DefaultToolPage } from '../../components/layout/default-tool-page'
 import { Card, CardContent } from '../../components/ui/card'
 import { Button } from '../../components/ui/button'
+// Import estático das traduções
+import ptTranslations from './translations/pt.json'
+import enTranslations from './translations/en.json'
+import esTranslations from './translations/es.json'
 
 export { Page }
+
+// Objeto com todas as traduções
+const translations = {
+  pt: ptTranslations,
+  en: enTranslations,
+  es: esTranslations
+}
 
 const feature = (
   <div className="text-center">
@@ -25,25 +35,13 @@ const children = (
 
 
 function Page() {
-  const pageContext = usePageContext()
-  const { t, loading, locale: currentLocale } = useTranslation('exemplo')
+  const { t, locale: currentLocale } = useTranslationStatic(translations)
 
   const handleLanguageChange = (newLocale) => {
     // Navegar para a nova URL com o locale usando vite-plugin-ssr
     const currentUrl = window.location.pathname
     const newUrl = currentUrl.replace(`/${currentLocale}`, `/${newLocale}`)
     navigate(newUrl)
-  }
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Carregando traduções...</p>
-        </div>
-      </div>
-    )
   }
 
   return (

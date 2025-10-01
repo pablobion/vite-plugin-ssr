@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { usePageContext } from '../../renderer/usePageContext';
+import { usePageContext } from '../../lib/hooks/usePageContext';
 import { pages } from '../../configs/pages';
 import { Search, X } from 'lucide-react';
 import { Input } from '../ui/input';

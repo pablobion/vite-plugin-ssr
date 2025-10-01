@@ -2,7 +2,7 @@ import * as React from "react"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Share2, Check } from "lucide-react"
-import { usePageContext } from "@/renderer/usePageContext"
+import { usePageContext } from "@/lib/hooks/usePageContext"
 import { extractPageKey } from "@/lib/metadata"
 
 // Lazy loading para componentes pesados

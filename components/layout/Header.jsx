@@ -1,4 +1,4 @@
-import { usePageContext } from '../../renderer/usePageContext'
+import { usePageContext } from '../../lib/hooks/usePageContext'
 import { lazy, Suspense } from 'react'
 
 // Lazy loading para ToolSearch (só carrega quando necessário)

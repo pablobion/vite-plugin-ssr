@@ -1,4 +1,4 @@
-import { usePageContext } from '../../../renderer/usePageContext'
+import { usePageContext } from '../../../lib/hooks/usePageContext'
 import { categories, getPagesByCategory } from '../../../configs/pages'
 import { Link } from '../../../components/ui/Link'
 import { Card } from '../../../components/ui/card'

@@ -3,7 +3,7 @@
 
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import { childrenPropType } from './PropTypeValues'
+import { childrenPropType } from '../../renderer/PropTypeValues'
 
 export { PageContextProvider }
 // eslint-disable-next-line react-refresh/only-export-components

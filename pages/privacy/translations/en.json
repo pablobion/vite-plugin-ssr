@@ -1,0 +1,50 @@
+{
+  "title": "Privacy Policy - 4Generate",
+  "description": "4Generate platform privacy policy. Learn how we collect, use, and protect your personal information.",
+  "keywords": "privacy policy, privacy, personal data, GDPR, data protection, 4generate",
+  "h1": "Privacy Policy",
+  "lastUpdate": "Last updated: October 1, 2025",
+  "copyright": "© 2025 4Generate. All rights reserved.",
+  "sections": [
+    {
+      "title": "1. Introduction",
+      "content": "This Privacy Policy describes how 4Generate collects, uses, stores, and protects your personal information when you use our services. By using our platform, you agree to the practices described in this policy."
+    },
+    {
+      "title": "2. Information We Collect",
+      "content": "We collect only the information necessary to provide our services:\n\n• Usage data: pages visited, time spent, tools used\n• Technical information: browser type, operating system, IP address\n• Generated data: information created by you using our tools (processed locally)\n• Cookies: to improve your browsing experience"
+    },
+    {
+      "title": "3. How We Use Your Information",
+      "content": "We use your information to:\n\n• Provide and improve our services\n• Personalize your experience\n• Analyze platform usage\n• Ensure security and prevent fraud\n• Comply with legal obligations\n• Communicate important updates"
+    },
+    {
+      "title": "4. Information Sharing",
+      "content": "We do not sell, rent, or share your personal information with third parties, except:\n\n• When necessary to provide our services\n• To comply with legal obligations\n• With your explicit consent\n• In case of company merger or acquisition"
+    },
+    {
+      "title": "5. Data Security",
+      "content": "We implement technical and organizational security measures to protect your information:\n\n• Data encryption in transit and at rest\n• Access restricted to authorized personnel only\n• Continuous security monitoring\n• Regular and secure data backup\n• Local processing whenever possible"
+    },
+    {
+      "title": "6. Data Retention",
+      "content": "We keep your information only for the time necessary to:\n\n• Provide our services\n• Comply with legal obligations\n• Resolve disputes\n• Enforce our terms of use\n\nAnonymous data may be kept indefinitely for analysis and service improvement purposes."
+    },
+    {
+      "title": "7. Your Rights (GDPR)",
+      "content": "Under the General Data Protection Regulation, you have the right to:\n\n• Access your personal data\n• Correct incomplete or incorrect data\n• Delete your data\n• Data portability\n• Withdraw consent\n• Information about data usage\n• Object to data processing"
+    },
+    {
+      "title": "8. Cookies and Similar Technologies",
+      "content": "We use cookies to:\n\n• Remember your language preferences\n• Improve site performance\n• Analyze platform usage\n• Personalize content\n\nYou can manage or disable cookies through your browser settings."
+    },
+    {
+      "title": "9. Minors",
+      "content": "Our services are not directed to minors under 18 years of age. We do not intentionally collect personal information from minors. If we become aware that we have collected data from a minor, we will take steps to delete that information immediately."
+    },
+    {
+      "title": "10. Changes to this Policy",
+      "content": "We may update this Privacy Policy periodically. We will notify about significant changes through:\n\n• Notice on our website\n• Email to registered users\n• Notification banner\n\nContinued use of our services after changes constitutes acceptance of the new policy."
+    }
+  ]
+}
