@@ -1,4 +1,27 @@
 {
-  "title": "Title in English",
-  "description": "Page description in English"
+  "title": "Example Page - 4generate",
+  "description": "Complete example of an SEO-optimized page with internationalization, semantic structure and rich content.",
+  "keywords": "example, demo, page template, SEO, internationalization, 4generate",
+  "h1": "Optimized Example Page",
+  "subtitle": "Demonstration of SEO best practices and structure",
+  "feature_title": "Main Feature",
+  "feature_description": "Here you can implement the main functionality of your page with proper semantic structure.",
+  "content_title": "Additional Content",
+  "content_description": "Section for complementary content, detailed explanations and SEO-relevant information.",
+  "cta_text": "Test Feature",
+  "benefits_title": "Implementation Benefits",
+  "benefits": [
+    {
+      "title": "SEO Optimized",
+      "description": "Proper semantic structure for better indexing"
+    },
+    {
+      "title": "Internationalization",
+      "description": "Full support for multiple languages"
+    },
+    {
+      "title": "Performance",
+      "description": "Fast loading and optimized experience"
+    }
+  ]
 }

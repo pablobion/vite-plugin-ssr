@@ -17,27 +17,32 @@ const staticTranslations = {
   }
 }
 
-export function useTranslation() {
+export function useTranslation(pagePath) {
   const pageContext = usePageContext()
   const locale = pageContext?.locale || 'pt'
   const [currentTranslations, setCurrentTranslations] = useState(staticTranslations[locale] || staticTranslations.pt)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    if (!pagePath) {
+      setLoading(false)
+      return
+    }
+    
     setLoading(true)
     // Tentar carregar traduções dinamicamente no client-side
-    import(`../pages/exemplo/translations/${locale}.json`)
+    import(`../pages/${pagePath}/translations/${locale}.json`)
       .then(module => {
         setCurrentTranslations(module.default)
       })
       .catch(error => {
-        console.error(`Failed to load translations for ${locale}:`, error)
+        console.error(`Failed to load translations for ${locale} at ${pagePath}:`, error)
         setCurrentTranslations(staticTranslations[locale] || staticTranslations.pt) // Fallback
       })
       .finally(() => {
         setLoading(false)
       })
-  }, [locale])
+  }, [locale, pagePath])
 
   const t = (key, params = {}) => {
     try {

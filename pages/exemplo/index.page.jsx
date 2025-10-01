@@ -26,7 +26,7 @@ const children = (
 
 function Page() {
   const pageContext = usePageContext()
-  const { t, loading, locale: currentLocale } = useTranslation()
+  const { t, loading, locale: currentLocale } = useTranslation('exemplo')
 
   const handleLanguageChange = (newLocale) => {
     // Navegar para a nova URL com o locale usando vite-plugin-ssr

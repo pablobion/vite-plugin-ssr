@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { theme } from '../../lib/localStorage'
 
 const ThemeContext = createContext()
 
@@ -6,20 +7,23 @@ export function ThemeProvider({ children }) {
   const [isDark, setIsDark] = useState(true) // Padrão: dark mode
 
   useEffect(() => {
-    // Sincronizar com o estado já aplicado pelo script inline
-    const isDarkMode = document.documentElement.classList.contains('dark')
+    // Carregar tema salvo do localStorage
+    const savedTheme = theme.get()
+    const isDarkMode = savedTheme === 'dark'
     setIsDark(isDarkMode)
+    
+    // Sincronizar com o DOM
+    document.documentElement.classList.toggle('dark', isDarkMode)
   }, [])
 
   const toggleTheme = () => {
-    const newTheme = !isDark
-    setIsDark(newTheme)
+    // Alternar tema usando a lib localStorage
+    const newTheme = theme.toggle()
+    const isDarkMode = newTheme === 'dark'
+    setIsDark(isDarkMode)
 
     // Aplicar tema no DOM
-    document.documentElement.classList.toggle('dark', newTheme)
-
-    // Salvar preferência
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light')
+    document.documentElement.classList.toggle('dark', isDarkMode)
   }
 
   return (

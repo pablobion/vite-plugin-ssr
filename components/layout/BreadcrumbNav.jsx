@@ -7,7 +7,7 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from '../ui/breadcrumb'
-import { pages } from '../../configs/pages.js'
+import { pages, categories } from '../../configs/pages.js'
 
 export function BreadcrumbNav() {
   const pageContext = usePageContext()
@@ -24,26 +24,57 @@ export function BreadcrumbNav() {
     breadcrumbs.push({
       label: 'Home',
       href: `/${locale || 'pt'}`,
-      isCurrent: pathSegments.length === 0
+      isCurrent: false
     })
 
     // Se não há segmentos além do locale, retornar apenas Home
     if (pathSegments.length === 0) {
+      breadcrumbs[0].isCurrent = true
       return breadcrumbs
     }
 
-    // Construir breadcrumbs para cada segmento
-    let currentPath = ''
-    pathSegments.forEach((segment, index) => {
-      currentPath += `/${segment}`
-      const isLast = index === pathSegments.length - 1
-
-      breadcrumbs.push({
-        label: getSegmentLabel(segment),
-        href: `/${locale || 'pt'}${currentPath}`,
-        isCurrent: isLast
-      })
+    // Buscar a página atual baseada no último segmento
+    const lastSegment = pathSegments[pathSegments.length - 1]
+    const currentPage = pages.find(page => {
+      // Remover a barra inicial do href para comparar
+      const pageHref = page.href.startsWith('/') ? page.href.slice(1) : page.href
+      return page.key === lastSegment || pageHref === pathSegments.join('/')
     })
+
+    // Se encontrou a página e ela tem categoria, adicionar a categoria
+    if (currentPage && currentPage.category) {
+      const categoryName = categories[currentPage.category]
+      
+      if (categoryName) {
+        breadcrumbs.push({
+          label: categoryName,
+          href: `/${locale || 'pt'}/category/${currentPage.category}`,
+          isCurrent: false
+        })
+      }
+    }
+
+    // Adicionar a página atual por último
+    if (currentPage) {
+      breadcrumbs.push({
+        label: currentPage.label,
+        href: `/${locale || 'pt'}${currentPage.href}`,
+        isCurrent: true
+      })
+    } else {
+      // Fallback: usar o path original se não encontrar a página
+      let currentPath = ''
+      pathSegments.forEach((segment, index) => {
+        currentPath += `/${segment}`
+        const isLast = index === pathSegments.length - 1
+
+        breadcrumbs.push({
+          label: getSegmentLabel(segment),
+          href: `/${locale || 'pt'}${currentPath}`,
+          isCurrent: isLast
+        })
+      })
+    }
 
     return breadcrumbs
   }

@@ -12,6 +12,24 @@ export const pages = [
     locales: ['pt', 'en', 'es']
   },
   {
+    key: 'categories',
+    label: 'Categorias',
+    href: '/categories',
+    category: 'main',
+    keywords: ['categorias', 'categories', 'todas', 'all', 'listar'],
+    show: true,
+    locales: ['pt', 'en', 'es']
+  },
+  {
+    key: 'terms',
+    label: 'Termos de Uso',
+    href: '/terms',
+    category: 'main',
+    keywords: ['termos', 'terms', 'uso', 'use', 'legal', 'condições'],
+    show: false,
+    locales: ['pt', 'en', 'es']
+  },
+  {
     key: 'exemplo',
     label: 'Exemplo',
     href: '/exemplo',

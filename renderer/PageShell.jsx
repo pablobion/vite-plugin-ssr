@@ -45,9 +45,10 @@ function PageShell({ pageContext, children }) {
         __html: `
           (function() {
             try {
-              const savedTheme = localStorage.getItem('theme');
+              const savedTheme = localStorage.getItem('4generate-theme');
               if (savedTheme) {
-                document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+                const theme = JSON.parse(savedTheme);
+                document.documentElement.classList.toggle('dark', theme === 'dark');
               } else {
                 // Padrão: modo dark quando não há tema selecionado
                 document.documentElement.classList.add('dark');

@@ -1,4 +1,27 @@
 {
-  "title": "Título en Español",
-  "description": "Descripción de la página en Español"
+  "title": "Página de Ejemplo - 4generate",
+  "description": "Ejemplo completo de página optimizada para SEO con internacionalización, estructura semántica y contenido rico.",
+  "keywords": "ejemplo, demo, plantilla de página, SEO, internacionalización, 4generate",
+  "h1": "Página de Ejemplo Optimizada",
+  "subtitle": "Demostración de mejores prácticas de SEO y estructura",
+  "feature_title": "Funcionalidad Principal",
+  "feature_description": "Aquí puedes implementar la funcionalidad principal de tu página con estructura semántica adecuada.",
+  "content_title": "Contenido Adicional",
+  "content_description": "Sección para contenido complementario, explicaciones detalladas e información relevante para SEO.",
+  "cta_text": "Probar Funcionalidad",
+  "benefits_title": "Beneficios de la Implementación",
+  "benefits": [
+    {
+      "title": "SEO Optimizado",
+      "description": "Estructura semántica adecuada para mejor indexación"
+    },
+    {
+      "title": "Internacionalización",
+      "description": "Soporte completo para múltiples idiomas"
+    },
+    {
+      "title": "Rendimiento",
+      "description": "Carga rápida y experiencia optimizada"
+    }
+  ]
 }

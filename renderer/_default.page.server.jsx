@@ -1,6 +1,6 @@
 export { render, onBeforePrerender }
 // See https://vite-plugin-ssr.com/data-fetching
-export const passToClient = ['pageProps', 'urlPathname', 'locale', 'urlOriginal']
+export const passToClient = ['pageProps', 'urlPathname', 'locale', 'urlOriginal', 'routeParams']
 
 import ReactDOMServer from 'react-dom/server'
 import { PageShell } from './PageShell'
