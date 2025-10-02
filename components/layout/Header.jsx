@@ -32,7 +32,7 @@ export default function Header({ isCollapsed, toggleSidebar }) {
           </svg>
         </button>
         {/* Navegação central - só aparece em telas grandes */}
-        <nav className="hidden lg:flex justify-end space-x-6 xl:space-x-8 flex-shrink-0 mr-4">
+        <nav className="hidden lg:flex w-[60%] justify-end">
           <a
             href={`/${locale}`}
             className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"

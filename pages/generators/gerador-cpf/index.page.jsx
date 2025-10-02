@@ -1,7 +1,7 @@
-import { DefaultToolPage } from '../../components/layout/default-tool-page'
-import { Card, CardContent } from '../../components/ui/card'
-import { Button } from '../../components/ui/button'
-import { Input } from '../../components/ui/input'
+import { DefaultToolPage } from '../../../components/layout/default-tool-page'
+import { Card, CardContent } from '../../../components/ui/card'
+import { Button } from '../../../components/ui/button'
+import { Input } from '../../../components/ui/input'
 import { useState } from 'react'
 
 export { Page }

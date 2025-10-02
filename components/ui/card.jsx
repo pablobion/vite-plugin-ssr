@@ -9,8 +9,8 @@ const cardVariants = cva(
     variants: {
       variant: {
         default: "border-border",
-        light: "bg-white/80 backdrop-blur-sm border-gray-200/50",
-        dark: "bg-gray-900/80 backdrop-blur-sm border-gray-800/50 shadow-purple-500/10 hover:shadow-purple-500/20"
+        light: "bg-white/80 backdrop-blur-sm border-border",
+        dark: "bg-gray-900/80 backdrop-blur-sm border-border shadow-purple-500/10 hover:shadow-purple-500/20"
       }
     },
     defaultVariants: {

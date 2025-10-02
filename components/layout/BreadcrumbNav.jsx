@@ -44,7 +44,7 @@ export function BreadcrumbNav() {
     // Se encontrou a página e ela tem categoria, adicionar a categoria
     if (currentPage && currentPage.category) {
       const categoryName = categories[currentPage.category]
-      
+
       if (categoryName) {
         breadcrumbs.push({
           label: categoryName,
@@ -83,11 +83,11 @@ export function BreadcrumbNav() {
   const getSegmentLabel = (segment) => {
     // Buscar a página no pages.js baseado no segmento
     const pageData = pages.find(page => page.key === segment)
-    
+
     if (pageData) {
       return pageData.label
     }
-    
+
     // Fallback: capitalizar primeira letra se não encontrar no pages.js
     return segment.charAt(0).toUpperCase() + segment.slice(1)
   }

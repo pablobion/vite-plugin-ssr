@@ -1,0 +1,42 @@
+{
+  "title": "About Us - 4Generate",
+  "description": "Learn about 4Generate, our mission, vision and values. Discover how we are revolutionizing access to free and secure online tools.",
+  "keywords": "about, company, mission, vision, values, 4generate, online tools, history",
+  "h1": "About Us",
+  "lastUpdate": "Last updated: October 1, 2025",
+  "copyright": "© 2025 4Generate. All rights reserved.",
+  "sections": [
+    {
+      "title": "Our Mission",
+      "content": "4Generate was born with the mission to democratize access to useful and secure online tools. We believe that technology should be accessible to everyone, regardless of financial resources or advanced technical knowledge.\n\nOur goal is to provide a reliable platform where users can find and use essential tools for their daily needs, from document generators to data validators, all for free and securely."
+    },
+    {
+      "title": "What We Do",
+      "content": "We develop and maintain a growing collection of online tools that include:\n\n• Document generators (CPF, CNPJ, RG, etc.)\n• Data and document validators\n• Conversion and formatting tools\n• Developer utilities\n• Productivity tools\n\nAll our tools are developed with a focus on security, privacy and ease of use."
+    },
+    {
+      "title": "Our Values",
+      "content": "Our core values guide every decision and development:\n\n• **Privacy**: Your data is processed locally whenever possible\n• **Security**: We implement best security practices\n• **Free**: All tools are 100% free\n• **Transparency**: Open source and transparent processes\n• **Innovation**: Always seeking to improve and expand our services\n• **Accessibility**: Intuitive interface for all users"
+    },
+    {
+      "title": "Technology and Security",
+      "content": "We use the most modern web technologies to ensure:\n\n• Local processing of sensitive data\n• End-to-end encryption\n• Responsive and accessible interface\n• Optimized performance\n• Compatibility with all modern browsers\n\nOur architecture is designed to be secure, fast and reliable, always prioritizing user privacy."
+    },
+    {
+      "title": "Our Team",
+      "content": "We are a team passionate about technology and innovation, composed of:\n\n• Experienced developers in web technologies\n• Security and privacy specialists\n• Designers focused on user experience\n• Professionals dedicated to quality and reliability\n\nEach member of our team shares the vision of making technology more accessible and useful for everyone."
+    },
+    {
+      "title": "Community Commitment",
+      "content": "We believe in the power of community and collaborative development:\n\n• Open source whenever possible\n• Active user feedback\n• Improvements based on community suggestions\n• Complete and accessible documentation\n• Responsive technical support\n\nOur platform constantly evolves thanks to feedback and contributions from our user community."
+    },
+    {
+      "title": "Future and Innovations",
+      "content": "We are always working on new features and improvements:\n\n• New tools based on user needs\n• Performance and security improvements\n• Expansion to new languages and markets\n• Integration with external APIs and services\n• Development of specialized tools\n\nOur roadmap is public and based on community feedback."
+    },
+    {
+      "title": "Contact and Support",
+      "content": "We are always available to listen to our users:\n\n• Technical support through official channels\n• Suggestions for new tools\n• Bug reports and issues\n• Feedback on improvements\n• Partnerships and collaborations\n\nYour opinion is fundamental for the growth and continuous improvement of our platform."
+    }
+  ]
+}

@@ -43,7 +43,7 @@ function Page() {
 
           {/* Main Heading */}
           <h1 className={`text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight ${
-            isDark ? 'text-white' : 'text-black'
+            isDark ? 'text-foreground' : 'text-white'
           }`}>
             Bem-vindo ao{' '}
             <span className={`bg-gradient-to-r ${
@@ -57,7 +57,7 @@ function Page() {
 
           {/* Subtitle */}
           <p className={`text-lg sm:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed ${
-            isDark ? 'text-white/90' : 'text-black/80'
+            isDark ? 'text-foreground/90' : 'text-white/90'
           }`}>
             A plataforma definitiva para geradores, validadores e ferramentas úteis.
             Crie, valide e otimize com facilidade.
@@ -96,8 +96,8 @@ function Page() {
                 : 'bg-black/10 border-black/20 hover:bg-black/15'
             }`}>
               <div className="text-3xl mb-4">⚡</div>
-              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-black'}`}>Geradores</h3>
-              <p className={isDark ? 'text-white/80' : 'text-black/70'}>Crie CPFs, senhas, códigos e muito mais com nossos geradores inteligentes.</p>
+              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-foreground' : 'text-white'}`}>Geradores</h3>
+              <p className={isDark ? 'text-foreground/80' : 'text-white/80'}>Crie CPFs, senhas, códigos e muito mais com nossos geradores inteligentes.</p>
             </div>
 
             <div className={`backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 hover:scale-105 ${
@@ -106,8 +106,8 @@ function Page() {
                 : 'bg-black/10 border-black/20 hover:bg-black/15'
             }`}>
               <div className="text-3xl mb-4">✅</div>
-              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-black'}`}>Validadores</h3>
-              <p className={isDark ? 'text-white/80' : 'text-black/70'}>Valide documentos, emails, URLs e outros dados com precisão.</p>
+              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-foreground' : 'text-white'}`}>Validadores</h3>
+              <p className={isDark ? 'text-foreground/80' : 'text-white/80'}>Valide documentos, emails, URLs e outros dados com precisão.</p>
             </div>
 
             <div className={`backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 hover:scale-105 ${
@@ -116,8 +116,8 @@ function Page() {
                 : 'bg-black/10 border-black/20 hover:bg-black/15'
             }`}>
               <div className="text-3xl mb-4">🔧</div>
-              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-black'}`}>Ferramentas</h3>
-              <p className={isDark ? 'text-white/80' : 'text-black/70'}>Utilitários essenciais para desenvolvedores e profissionais.</p>
+              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-foreground' : 'text-white'}`}>Ferramentas</h3>
+              <p className={isDark ? 'text-foreground/80' : 'text-white/80'}>Utilitários essenciais para desenvolvedores e profissionais.</p>
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ function Page() {
       }`}>
         <div className="max-w-6xl mx-auto px-4 py-12">
           <h2 className={`text-2xl font-bold text-center mb-8 ${
-            isDark ? 'text-white' : 'text-black'
+            isDark ? 'text-foreground' : 'text-white'
           }`}>
             Acesse Rapidamente
           </h2>
@@ -143,7 +143,7 @@ function Page() {
               }`}
             >
               <div className="text-2xl mb-2">📝</div>
-              <div className={`font-medium ${isDark ? 'text-white' : 'text-black'}`}>Exemplos</div>
+              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>Exemplos</div>
             </a>
             <a
               href="/components"
@@ -154,7 +154,7 @@ function Page() {
               }`}
             >
               <div className="text-2xl mb-2">🧩</div>
-              <div className={`font-medium ${isDark ? 'text-white' : 'text-black'}`}>Componentes</div>
+              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>Componentes</div>
             </a>
             <a
               href="/about"
@@ -165,7 +165,7 @@ function Page() {
               }`}
             >
               <div className="text-2xl mb-2">ℹ️</div>
-              <div className={`font-medium ${isDark ? 'text-white' : 'text-black'}`}>Sobre</div>
+              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>Sobre</div>
             </a>
             <a
               href="/tailwind-test"
@@ -176,7 +176,7 @@ function Page() {
               }`}
             >
               <div className="text-2xl mb-2">🎨</div>
-              <div className={`font-medium ${isDark ? 'text-white' : 'text-black'}`}>Teste</div>
+              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>Teste</div>
             </a>
           </div>
         </div>

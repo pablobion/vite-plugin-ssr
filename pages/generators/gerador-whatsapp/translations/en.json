@@ -1,0 +1,49 @@
+{
+  "title": "WhatsApp Link Generator",
+  "description": "Generate WhatsApp links easily to start conversations with specific numbers and predefined messages.",
+  "feature": {
+    "title": "Create your WhatsApp link"
+  },
+  "form": {
+    "phoneLabel": "WhatsApp Number",
+    "phonePlaceholder": "Ex: 1234567890 or +1234567890",
+    "phoneHelp": "Enter the number with area code (ex: 1234567890) or with country code (+1234567890)",
+    "messageLabel": "Message (optional)",
+    "messagePlaceholder": "Ex: Hello! I would like to know more about...",
+    "messageHelp": "The message will appear automatically when the link is opened"
+  },
+  "buttons": {
+    "generate": "Generate Link",
+    "copy": "Copy Link",
+    "openWhatsApp": "Open WhatsApp"
+  },
+  "result": {
+    "title": "Generated Link"
+  },
+  "alerts": {
+    "phoneRequired": "Please enter a valid phone number",
+    "copied": "Link copied to clipboard!"
+  },
+  "about": {
+    "title": "About WhatsApp Link Generator",
+    "description": "This tool allows you to create personalized WhatsApp links that open directly to a conversation with a specific number. You can include a predefined message that will be displayed automatically when the link is clicked."
+  },
+  "features": {
+    "title": "Features",
+    "phoneFormat": "Automatic number formatting",
+    "messageSupport": "Custom message support",
+    "copyLink": "Easy link copying",
+    "openDirect": "Direct WhatsApp opening"
+  },
+  "tips": {
+    "title": "Usage Tips",
+    "phoneFormat": "Use format: area code + number (ex: 1234567890)",
+    "messageOptional": "Message is optional but recommended",
+    "countryCode": "For international numbers, use +country code",
+    "worksMobile": "Works on both mobile and computer"
+  },
+  "note": {
+    "title": "Important",
+    "content": "Generated links work on any device with WhatsApp installed. On computer, it will open WhatsApp Web if logged in."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "title": "Generador de Enlaces de WhatsApp",
+  "description": "Genera enlaces de WhatsApp fácilmente para iniciar conversaciones con números específicos y mensajes predefinidos.",
+  "feature": {
+    "title": "Crea tu enlace de WhatsApp"
+  },
+  "form": {
+    "phoneLabel": "Número de WhatsApp",
+    "phonePlaceholder": "Ej: 1234567890 o +1234567890",
+    "phoneHelp": "Ingresa el número con código de área (ej: 1234567890) o con código de país (+1234567890)",
+    "messageLabel": "Mensaje (opcional)",
+    "messagePlaceholder": "Ej: ¡Hola! Me gustaría saber más sobre...",
+    "messageHelp": "El mensaje aparecerá automáticamente cuando se abra el enlace"
+  },
+  "buttons": {
+    "generate": "Generar Enlace",
+    "copy": "Copiar Enlace",
+    "openWhatsApp": "Abrir WhatsApp"
+  },
+  "result": {
+    "title": "Enlace Generado"
+  },
+  "alerts": {
+    "phoneRequired": "Por favor, ingresa un número de teléfono válido",
+    "copied": "¡Enlace copiado al portapapeles!"
+  },
+  "about": {
+    "title": "Acerca del Generador de Enlaces de WhatsApp",
+    "description": "Esta herramienta te permite crear enlaces personalizados de WhatsApp que se abren directamente a una conversación con un número específico. Puedes incluir un mensaje predefinido que se mostrará automáticamente cuando se haga clic en el enlace."
+  },
+  "features": {
+    "title": "Características",
+    "phoneFormat": "Formateo automático de números",
+    "messageSupport": "Soporte para mensajes personalizados",
+    "copyLink": "Copia fácil del enlace generado",
+    "openDirect": "Apertura directa en WhatsApp"
+  },
+  "tips": {
+    "title": "Consejos de Uso",
+    "phoneFormat": "Usa el formato: código de área + número (ej: 1234567890)",
+    "messageOptional": "El mensaje es opcional pero recomendado",
+    "countryCode": "Para números internacionales, usa +código de país",
+    "worksMobile": "Funciona tanto en móvil como en computadora"
+  },
+  "note": {
+    "title": "Importante",
+    "content": "Los enlaces generados funcionan en cualquier dispositivo con WhatsApp instalado. En computadora, abrirá WhatsApp Web si estás conectado."
+  }
+}

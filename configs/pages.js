@@ -8,7 +8,7 @@ export const pages = [
     href: '/',
     category: 'main',
     keywords: ['home', 'início', 'principal'],
-    show: true,
+    show: false,
     locales: ['pt', 'en', 'es']
   },
   {
@@ -17,42 +17,6 @@ export const pages = [
     href: '/categories',
     category: 'main',
     keywords: ['categorias', 'categories', 'todas', 'all', 'listar'],
-    show: true,
-    locales: ['pt', 'en', 'es']
-  },
-  {
-    key: 'about',
-    label: 'Sobre',
-    href: '/about',
-    category: 'main',
-    keywords: ['sobre', 'about', 'informações', 'information', 'empresa', 'company', 'quem somos', 'who we are'],
-    show: false,
-    locales: ['pt', 'en', 'es']
-  },
-  {
-    key: 'terms',
-    label: 'Termos de Uso',
-    href: '/terms',
-    category: 'main',
-    keywords: ['termos', 'terms', 'uso', 'use', 'legal', 'condições'],
-    show: false,
-    locales: ['pt', 'en', 'es']
-  },
-  {
-    key: 'privacy',
-    label: 'Política de Privacidade',
-    href: '/privacy',
-    category: 'main',
-    keywords: ['privacidade', 'privacy', 'política', 'policy', 'dados', 'data', 'LGPD', 'GDPR'],
-    show: false,
-    locales: ['pt', 'en', 'es']
-  },
-  {
-    key: 'cookies',
-    label: 'Política de Cookies',
-    href: '/cookie-policy',
-    category: 'main',
-    keywords: ['cookies', 'política', 'policy', 'tecnologias', 'technologies', 'rastreamento', 'tracking'],
     show: false,
     locales: ['pt', 'en', 'es']
   },
@@ -66,64 +30,23 @@ export const pages = [
     locales: ['pt', 'en', 'es']
   },
   {
-    key: 'exemploBackup',
-    label: 'Exemplo Backup',
-    href: '/exemploBackup',
-    category: 'examples',
-    keywords: ['exemplo', 'backup', 'example', 'demo', 'demonstração', 'respaldo'],
-    show: true,
-    locales: ['pt', 'en', 'es']
-  },
-  {
-    key: 'aurora',
-    label: 'Aurora',
-    href: '/aurora',
-    category: 'examples',
-    keywords: ['aurora', 'example', 'demo', 'demonstração'],
-    show: true,
-    locales: ['pt', 'en', 'es']
-  },
-
-  {
-    key: 'simple-test',
-    label: 'Teste Simples',
-    href: '/simple-test',
-    category: 'examples',
-    keywords: ['teste', 'test', 'simples', 'simple'],
-    show: true,
-    locales: ['pt', 'en', 'es']
-  },
-
-  {
-    key: 'tailwind-test',
-    label: 'Teste Tailwind',
-    href: '/tailwind-test',
-    category: 'examples',
-    keywords: ['tailwind', 'css', 'teste', 'test', 'estilos'],
-    show: true,
-    locales: ['pt', 'en', 'es']
-  },
-
-  {
-    key: 'gerador-cpf',
-    href: '/gerador-cpf',
+    key: 'generators/gerador-cpf',
+    href: '/generators/gerador-cpf',
     label: 'Gerador de CPF',
     category: 'generators',
     keywords: ['cpf', 'gerador', 'gerador de cpf', 'validador', 'brasil', 'documento'],
     show: true,
     locales: ['pt', 'en', 'es']
   },
-
   {
-    key: 'components',
-    href: '/components',
-    label: 'Componentes',
-    category: 'examples',
-    keywords: ['componentes', 'ui', 'teste', 'components', 'interface'],
+    key: 'generators/gerador-whatsapp',
+    href: '/generators/gerador-whatsapp',
+    label: 'Gerador de WhatsApp',
+    category: 'generators',
+    keywords: ['whatsapp', 'gerador', 'gerador de whatsapp', 'link', 'link do whatsapp'],
     show: true,
     locales: ['pt', 'en', 'es']
   },
-
   // Categorias (não mostradas na sidebar, mas usadas para organização)
   {
     key: 'category-generators',
@@ -144,7 +67,6 @@ export const pages = [
     show: false,
     locales: ['pt', 'en', 'es']
   },
-
   {
     key: 'category-tools',
     label: 'Ferramentas',

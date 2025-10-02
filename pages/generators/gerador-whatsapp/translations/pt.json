@@ -1,0 +1,49 @@
+{
+  "title": "Gerador de Link do WhatsApp",
+  "description": "Gere links do WhatsApp facilmente para iniciar conversas com números específicos e mensagens pré-definidas.",
+  "feature": {
+    "title": "Crie seu link do WhatsApp"
+  },
+  "form": {
+    "phoneLabel": "Número do WhatsApp",
+    "phonePlaceholder": "Ex: 11999999999 ou +5511999999999",
+    "phoneHelp": "Digite o número com DDD (ex: 11999999999) ou com código do país (+5511999999999)",
+    "messageLabel": "Mensagem (opcional)",
+    "messagePlaceholder": "Ex: Olá! Gostaria de saber mais sobre...",
+    "messageHelp": "A mensagem aparecerá automaticamente quando o link for aberto"
+  },
+  "buttons": {
+    "generate": "Gerar Link",
+    "copy": "Copiar Link",
+    "openWhatsApp": "Abrir WhatsApp"
+  },
+  "result": {
+    "title": "Link Gerado"
+  },
+  "alerts": {
+    "phoneRequired": "Por favor, digite um número de telefone válido",
+    "copied": "Link copiado para a área de transferência!"
+  },
+  "about": {
+    "title": "Sobre o Gerador de Links do WhatsApp",
+    "description": "Esta ferramenta permite criar links personalizados do WhatsApp que abrem diretamente uma conversa com um número específico. Você pode incluir uma mensagem pré-definida que será exibida automaticamente quando o link for clicado."
+  },
+  "features": {
+    "title": "Funcionalidades",
+    "phoneFormat": "Formatação automática de números",
+    "messageSupport": "Suporte a mensagens personalizadas",
+    "copyLink": "Cópia fácil do link gerado",
+    "openDirect": "Abertura direta no WhatsApp"
+  },
+  "tips": {
+    "title": "Dicas de Uso",
+    "phoneFormat": "Use o formato: DDD + número (ex: 11999999999)",
+    "messageOptional": "A mensagem é opcional, mas recomendada",
+    "countryCode": "Para números internacionais, use +código do país",
+    "worksMobile": "Funciona tanto no celular quanto no computador"
+  },
+  "note": {
+    "title": "Importante",
+    "content": "Os links gerados funcionam em qualquer dispositivo que tenha o WhatsApp instalado. No computador, abrirá o WhatsApp Web se estiver logado."
+  }
+}

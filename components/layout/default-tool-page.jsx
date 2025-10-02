@@ -104,7 +104,7 @@ export function DefaultToolPage({
           </CardHeader>
         </Card>
         {feature && (
-          <Card className="mb-5 bg-gradient-to-br from-white to-gray-50 shadow-xl hover:shadow-2xl dark:from-background dark:to-secondary/50 dark:shadow-lg dark:hover:shadow-xl">
+          <Card className="mb-5 shadow-xl hover:shadow-2xl dark:shadow-lg ">
                 <CardContent>
                   {feature}
                 </CardContent>

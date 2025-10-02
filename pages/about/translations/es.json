@@ -1,0 +1,42 @@
+{
+  "title": "Acerca de Nosotros - 4Generate",
+  "description": "Conoce 4Generate, nuestra misión, visión y valores. Descubre cómo estamos revolucionando el acceso a herramientas en línea gratuitas y seguras.",
+  "keywords": "acerca de, empresa, misión, visión, valores, 4generate, herramientas en línea, historia",
+  "h1": "Acerca de Nosotros",
+  "lastUpdate": "Última actualización: 1 de octubre de 2025",
+  "copyright": "© 2025 4Generate. Todos los derechos reservados.",
+  "sections": [
+    {
+      "title": "Nuestra Misión",
+      "content": "4Generate nació con la misión de democratizar el acceso a herramientas en línea útiles y seguras. Creemos que la tecnología debe ser accesible para todos, independientemente de los recursos financieros o el conocimiento técnico avanzado.\n\nNuestro objetivo es proporcionar una plataforma confiable donde los usuarios puedan encontrar y utilizar herramientas esenciales para sus necesidades diarias, desde generadores de documentos hasta validadores de datos, todo de forma gratuita y segura."
+    },
+    {
+      "title": "Lo Que Hacemos",
+      "content": "Desarrollamos y mantenemos una colección creciente de herramientas en línea que incluyen:\n\n• Generadores de documentos (CPF, CNPJ, RG, etc.)\n• Validadores de datos y documentos\n• Herramientas de conversión y formateo\n• Utilidades para desarrolladores\n• Herramientas de productividad\n\nTodas nuestras herramientas se desarrollan con enfoque en la seguridad, privacidad y facilidad de uso."
+    },
+    {
+      "title": "Nuestros Valores",
+      "content": "Nuestros valores fundamentales guían cada decisión y desarrollo:\n\n• **Privacidad**: Tus datos se procesan localmente siempre que sea posible\n• **Seguridad**: Implementamos las mejores prácticas de seguridad\n• **Gratuidad**: Todas las herramientas son 100% gratuitas\n• **Transparencia**: Código abierto y procesos transparentes\n• **Innovación**: Siempre buscando mejorar y expandir nuestros servicios\n• **Accesibilidad**: Interfaz intuitiva para todos los usuarios"
+    },
+    {
+      "title": "Tecnología y Seguridad",
+      "content": "Utilizamos las tecnologías web más modernas para garantizar:\n\n• Procesamiento local de datos sensibles\n• Cifrado de extremo a extremo\n• Interfaz responsiva y accesible\n• Rendimiento optimizado\n• Compatibilidad con todos los navegadores modernos\n\nNuestra arquitectura está diseñada para ser segura, rápida y confiable, priorizando siempre la privacidad del usuario."
+    },
+    {
+      "title": "Nuestro Equipo",
+      "content": "Somos un equipo apasionado por la tecnología y la innovación, compuesto por:\n\n• Desarrolladores experimentados en tecnologías web\n• Especialistas en seguridad y privacidad\n• Diseñadores enfocados en la experiencia del usuario\n• Profesionales dedicados a la calidad y confiabilidad\n\nCada miembro de nuestro equipo comparte la visión de hacer la tecnología más accesible y útil para todos."
+    },
+    {
+      "title": "Compromiso con la Comunidad",
+      "content": "Creemos en el poder de la comunidad y el desarrollo colaborativo:\n\n• Código abierto siempre que sea posible\n• Retroalimentación activa de los usuarios\n• Mejoras basadas en sugerencias de la comunidad\n• Documentación completa y accesible\n• Soporte técnico responsivo\n\nNuestra plataforma evoluciona constantemente gracias a la retroalimentación y contribuciones de nuestra comunidad de usuarios."
+    },
+    {
+      "title": "Futuro e Innovaciones",
+      "content": "Siempre estamos trabajando en nuevas funcionalidades y mejoras:\n\n• Nuevas herramientas basadas en necesidades de los usuarios\n• Mejoras de rendimiento y seguridad\n• Expansión a nuevos idiomas y mercados\n• Integración con APIs y servicios externos\n• Desarrollo de herramientas especializadas\n\nNuestro roadmap es público y basado en la retroalimentación de la comunidad."
+    },
+    {
+      "title": "Contacto y Soporte",
+      "content": "Siempre estamos disponibles para escuchar a nuestros usuarios:\n\n• Soporte técnico a través de canales oficiales\n• Sugerencias de nuevas herramientas\n• Reporte de errores y problemas\n• Retroalimentación sobre mejoras\n• Alianzas y colaboraciones\n\nTu opinión es fundamental para el crecimiento y mejora continua de nuestra plataforma."
+    }
+  ]
+}

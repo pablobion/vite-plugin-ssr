@@ -40,7 +40,7 @@
     /* Cor do texto sobre ações destrutivas - quase branco */
     --border: 0 0% 89.8%;
     /* Cor das bordas - cinza claro */
-    --input: 0 0% 89.8%;
+    --input: 0 0% 100%;
     /* Cor de fundo dos inputs - cinza claro */
     --ring: 270 100% 50%;
     /* Cor do anel de foco - roxo vibrante */
@@ -68,7 +68,7 @@
     /* Cor de fundo dos cartões - preto */
     --card-foreground: 0 0% 98%;
     /* Cor do texto nos cartões - quase branco */
-    --popover: 0 0% 0%;
+    --popover: 0 0% 8%;
     /* Cor de fundo dos popovers - preto */
     --popover-foreground: 0 0% 98%;
     /* Cor do texto nos popovers - quase branco */
@@ -122,5 +122,30 @@
   body {
     /* Define cor de fundo e texto para o body usando as variáveis CSS */
     @apply bg-background text-foreground;
+  }
+
+  /* Estilos customizados para scrollbar minimalista */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.2);
+    border-radius: 3px;
+    transition: background 0.2s ease;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.3);
+  }
+
+  /* Para Firefox */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.2) transparent;
   }
 }

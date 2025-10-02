@@ -1,0 +1,42 @@
+{
+  "title": "Sobre Nós - 4Generate",
+  "description": "Conheça a 4Generate, nossa missão, visão e valores. Descubra como estamos revolucionando o acesso a ferramentas online gratuitas e seguras.",
+  "keywords": "sobre, empresa, missão, visão, valores, 4generate, ferramentas online, história",
+  "h1": "Sobre Nós",
+  "lastUpdate": "Última atualização: 1 de outubro de 2025",
+  "copyright": "© 2025 4Generate. Todos os direitos reservados.",
+  "sections": [
+    {
+      "title": "Nossa Missão",
+      "content": "A 4Generate nasceu com a missão de democratizar o acesso a ferramentas online úteis e seguras. Acreditamos que a tecnologia deve ser acessível a todos, independentemente de recursos financeiros ou conhecimento técnico avançado.\n\nNosso objetivo é fornecer uma plataforma confiável onde usuários possam encontrar e utilizar ferramentas essenciais para suas necessidades diárias, desde geradores de documentos até validadores de dados, tudo de forma gratuita e segura."
+    },
+    {
+      "title": "O Que Fazemos",
+      "content": "Desenvolvemos e mantemos uma coleção crescente de ferramentas online que incluem:\n\n• Geradores de documentos (CPF, CNPJ, RG, etc.)\n• Validadores de dados e documentos\n• Ferramentas de conversão e formatação\n• Utilitários para desenvolvedores\n• Ferramentas de produtividade\n\nTodas as nossas ferramentas são desenvolvidas com foco na segurança, privacidade e facilidade de uso."
+    },
+    {
+      "title": "Nossos Valores",
+      "content": "Nossos valores fundamentais guiam cada decisão e desenvolvimento:\n\n• **Privacidade**: Seus dados são processados localmente sempre que possível\n• **Segurança**: Implementamos as melhores práticas de segurança\n• **Gratuidade**: Todas as ferramentas são 100% gratuitas\n• **Transparência**: Código aberto e processos transparentes\n• **Inovação**: Sempre buscando melhorar e expandir nossos serviços\n• **Acessibilidade**: Interface intuitiva para todos os usuários"
+    },
+    {
+      "title": "Tecnologia e Segurança",
+      "content": "Utilizamos as mais modernas tecnologias web para garantir:\n\n• Processamento local de dados sensíveis\n• Criptografia de ponta a ponta\n• Interface responsiva e acessível\n• Performance otimizada\n• Compatibilidade com todos os navegadores modernos\n\nNossa arquitetura é projetada para ser segura, rápida e confiável, priorizando sempre a privacidade do usuário."
+    },
+    {
+      "title": "Nossa Equipe",
+      "content": "Somos uma equipe apaixonada por tecnologia e inovação, composta por:\n\n• Desenvolvedores experientes em tecnologias web\n• Especialistas em segurança e privacidade\n• Designers focados em experiência do usuário\n• Profissionais dedicados à qualidade e confiabilidade\n\nCada membro da nossa equipe compartilha a visão de tornar a tecnologia mais acessível e útil para todos."
+    },
+    {
+      "title": "Compromisso com a Comunidade",
+      "content": "Acreditamos no poder da comunidade e no desenvolvimento colaborativo:\n\n• Código aberto sempre que possível\n• Feedback ativo dos usuários\n• Melhorias baseadas em sugestões da comunidade\n• Documentação completa e acessível\n• Suporte técnico responsivo\n\nNossa plataforma evolui constantemente graças ao feedback e contribuições de nossa comunidade de usuários."
+    },
+    {
+      "title": "Futuro e Inovações",
+      "content": "Estamos sempre trabalhando em novas funcionalidades e melhorias:\n\n• Novas ferramentas baseadas em necessidades dos usuários\n• Melhorias de performance e segurança\n• Expansão para novos idiomas e mercados\n• Integração com APIs e serviços externos\n• Desenvolvimento de ferramentas especializadas\n\nNosso roadmap é público e baseado no feedback da comunidade."
+    },
+    {
+      "title": "Contato e Suporte",
+      "content": "Estamos sempre disponíveis para ouvir nossos usuários:\n\n• Suporte técnico através dos canais oficiais\n• Sugestões de novas ferramentas\n• Reporte de bugs e problemas\n• Feedback sobre melhorias\n• Parcerias e colaborações\n\nSua opinião é fundamental para o crescimento e melhoria contínua da nossa plataforma."
+    }
+  ]
+}
