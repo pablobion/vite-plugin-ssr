@@ -2,11 +2,24 @@ import Aurora from '../../components/layout/aurora'
 import { Button } from '../../components/ui/button'
 import { Badge } from '../../components/ui/badge'
 import { useTheme } from '../../components/layout/ThemeContext'
+import { useTranslationStatic } from '../../lib/hooks/useTranslation'
+// Import estático das traduções
+import ptTranslations from './translations/pt.json'
+import enTranslations from './translations/en.json'
+import esTranslations from './translations/es.json'
 
 export { Page }
 
+// Objeto com todas as traduções
+const translations = {
+  pt: ptTranslations,
+  en: enTranslations,
+  es: esTranslations
+}
+
 function Page() {
   const { isDark } = useTheme()
+  const { t } = useTranslationStatic(translations)
 
   // Cores do Aurora baseadas no tema
   const auroraColors = isDark
@@ -33,25 +46,22 @@ function Page() {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center w-full">
         <div className="">
           {/* Badge */}
-          <Badge variant="secondary" className={`mb-6 px-4 py-2 text-sm font-medium backdrop-blur-sm border ${
-            isDark
-              ? 'bg-white/10 border-white/20 text-white'
-              : 'bg-black/10 border-black/20 text-black'
-          }`}>
-            ✨ Nova plataforma de ferramentas
+
+          <Badge variant="secondary" className={`mb-6 px-4 py-2 text-sm font-medium backdrop-blur-sm border `}>
+            {t('badge')}
           </Badge>
 
           {/* Main Heading */}
           <h1 className={`text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight ${
             isDark ? 'text-foreground' : 'text-white'
           }`}>
-            Bem-vindo ao{' '}
+            {t('hero.title')}{' '}
             <span className={`bg-gradient-to-r ${
               isDark
                 ? 'from-blue-400 via-purple-400 to-pink-400'
                 : 'from-blue-600 via-purple-600 to-pink-600'
             } bg-clip-text text-transparent`}>
-              4generate
+              {t('hero.brand')}
             </span>
           </h1>
 
@@ -59,8 +69,7 @@ function Page() {
           <p className={`text-lg sm:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed ${
             isDark ? 'text-foreground/90' : 'text-white/90'
           }`}>
-            A plataforma definitiva para geradores, validadores e ferramentas úteis.
-            Crie, valide e otimize com facilidade.
+            {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
@@ -73,7 +82,7 @@ function Page() {
                   : 'bg-black text-white hover:bg-gray-800'
               }`}
             >
-              🚀 Começar Agora
+              {t('buttons.startNow')}
             </Button>
             <Button
               variant="outline"
@@ -84,40 +93,28 @@ function Page() {
                   : 'border-black/30 text-black hover:bg-black/10'
               }`}
             >
-              📖 Ver Documentação
+              {t('buttons.documentation')}
             </Button>
           </div>
 
           {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className={`backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 hover:scale-105 ${
-              isDark
-                ? 'bg-white/10 border-white/20 hover:bg-white/15'
-                : 'bg-black/10 border-black/20 hover:bg-black/15'
-            }`}>
-              <div className="text-3xl mb-4">⚡</div>
-              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-foreground' : 'text-white'}`}>Geradores</h3>
-              <p className={isDark ? 'text-foreground/80' : 'text-white/80'}>Crie CPFs, senhas, códigos e muito mais com nossos geradores inteligentes.</p>
+            <div className={`backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 hover:scale-105 bg-background text-background border-background`}>
+              <div className="text-3xl mb-4">{t('features.generators.icon')}</div>
+              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-foreground' : 'text-white'}`}>{t('features.generators.title')}</h3>
+              <p className={isDark ? 'text-foreground/80' : 'text-white/80'}>{t('features.generators.description')}</p>
             </div>
 
-            <div className={`backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 hover:scale-105 ${
-              isDark
-                ? 'bg-white/10 border-white/20 hover:bg-white/15'
-                : 'bg-black/10 border-black/20 hover:bg-black/15'
-            }`}>
-              <div className="text-3xl mb-4">✅</div>
-              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-foreground' : 'text-white'}`}>Validadores</h3>
-              <p className={isDark ? 'text-foreground/80' : 'text-white/80'}>Valide documentos, emails, URLs e outros dados com precisão.</p>
+            <div className={`backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 hover:scale-105 bg-background text-background border-background`}>
+              <div className="text-3xl mb-4">{t('features.validators.icon')}</div>
+              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-foreground' : 'text-white'}`}>{t('features.validators.title')}</h3>
+              <p className={isDark ? 'text-foreground/80' : 'text-white/80'}>{t('features.validators.description')}</p>
             </div>
 
-            <div className={`backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 hover:scale-105 ${
-              isDark
-                ? 'bg-white/10 border-white/20 hover:bg-white/15'
-                : 'bg-black/10 border-black/20 hover:bg-black/15'
-            }`}>
-              <div className="text-3xl mb-4">🔧</div>
-              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-foreground' : 'text-white'}`}>Ferramentas</h3>
-              <p className={isDark ? 'text-foreground/80' : 'text-white/80'}>Utilitários essenciais para desenvolvedores e profissionais.</p>
+            <div className={`backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 hover:scale-105 bg-background text-background border-background`}>
+              <div className="text-3xl mb-4">{t('features.tools.icon')}</div>
+              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-foreground' : 'text-white'}`}>{t('features.tools.title')}</h3>
+              <p className={isDark ? 'text-foreground/80' : 'text-white/80'}>{t('features.tools.description')}</p>
             </div>
           </div>
         </div>
@@ -131,7 +128,7 @@ function Page() {
           <h2 className={`text-2xl font-bold text-center mb-8 ${
             isDark ? 'text-foreground' : 'text-white'
           }`}>
-            Acesse Rapidamente
+            {t('quickLinks.title')}
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <a
@@ -142,8 +139,8 @@ function Page() {
                   : 'bg-black/10 hover:bg-black/20 border-black/20'
               }`}
             >
-              <div className="text-2xl mb-2">📝</div>
-              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>Exemplos</div>
+              <div className="text-2xl mb-2">{t('quickLinks.examples.icon')}</div>
+              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>{t('quickLinks.examples.title')}</div>
             </a>
             <a
               href="/components"
@@ -153,8 +150,8 @@ function Page() {
                   : 'bg-black/10 hover:bg-black/20 border-black/20'
               }`}
             >
-              <div className="text-2xl mb-2">🧩</div>
-              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>Componentes</div>
+              <div className="text-2xl mb-2">{t('quickLinks.components.icon')}</div>
+              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>{t('quickLinks.components.title')}</div>
             </a>
             <a
               href="/about"
@@ -164,8 +161,8 @@ function Page() {
                   : 'bg-black/10 hover:bg-black/20 border-black/20'
               }`}
             >
-              <div className="text-2xl mb-2">ℹ️</div>
-              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>Sobre</div>
+              <div className="text-2xl mb-2">{t('quickLinks.about.icon')}</div>
+              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>{t('quickLinks.about.title')}</div>
             </a>
             <a
               href="/tailwind-test"
@@ -175,8 +172,8 @@ function Page() {
                   : 'bg-black/10 hover:bg-black/20 border-black/20'
               }`}
             >
-              <div className="text-2xl mb-2">🎨</div>
-              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>Teste</div>
+              <div className="text-2xl mb-2">{t('quickLinks.test.icon')}</div>
+              <div className={`font-medium ${isDark ? 'text-foreground' : 'text-white'}`}>{t('quickLinks.test.title')}</div>
             </a>
           </div>
         </div>

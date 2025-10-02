@@ -1,0 +1,51 @@
+{
+  "title": "4Generate - Online Tools Platform",
+  "description": "The ultimate platform for generators, validators and useful tools. Create, validate and optimize with ease.",
+  "keywords": "online tools, generators, validators, 4generate, platform, utilities",
+  "badge": "✨ New tools platform",
+  "hero": {
+    "title": "Welcome to",
+    "brand": "4generate",
+    "subtitle": "The ultimate platform for generators, validators and useful tools. Create, validate and optimize with ease."
+  },
+  "buttons": {
+    "startNow": "🚀 Get Started",
+    "documentation": "ℹ️ About 4generate"
+  },
+  "features": {
+    "generators": {
+      "title": "Generators",
+      "description": "Create CPFs, passwords, codes and much more with our intelligent generators.",
+      "icon": "⚡"
+    },
+    "validators": {
+      "title": "Validators",
+      "description": "Validate documents, emails, URLs and other data with precision.",
+      "icon": "✅"
+    },
+    "tools": {
+      "title": "Tools",
+      "description": "Essential utilities for developers and professionals.",
+      "icon": "🔧"
+    }
+  },
+  "quickLinks": {
+    "title": "Quick Access",
+    "examples": {
+      "title": "Examples",
+      "icon": "📝"
+    },
+    "components": {
+      "title": "Components",
+      "icon": "🧩"
+    },
+    "about": {
+      "title": "About",
+      "icon": "ℹ️"
+    },
+    "test": {
+      "title": "Test",
+      "icon": "🎨"
+    }
+  }
+}

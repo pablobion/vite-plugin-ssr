@@ -8,7 +8,7 @@
     /* Variáveis CSS para tema claro - cores em formato HSL */
     --background: 0 0% 100%;
     /* Cor de fundo principal - branco */
-    --foreground: 0 0% 3.9%;
+    --foreground: 0 0% 10%;
     /* Cor do texto principal - quase preto */
     --card: 0 0% 100%;
     /* Cor de fundo dos cartões - branco */
@@ -19,7 +19,7 @@
     --popover-foreground: 0 0% 3.9%;
     /* Cor do texto nos popovers - quase preto */
     --primary: 270 100% 50%;
-    /* Cor primária - roxo vibrante */
+    /* Cor primária - roxo vibrante (mantida igual) */
     --primary-foreground: 0 0% 98%;
     /* Cor do texto sobre o primário - quase branco */
     --secondary: 0 0% 99%;

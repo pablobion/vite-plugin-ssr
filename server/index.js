@@ -54,9 +54,12 @@ async function startServer() {
   // mudança de locale sem redirect na página inicial
   // O locale será detectado automaticamente pelo onBeforeRoute
 
+  // ===========================================
+  // MIDDLEWARES PARA ARQUIVOS ESTÁTICOS
+  // DEVEM VIR ANTES DO MIDDLEWARE CATCH-ALL
+  // ===========================================
 
-
-  // Rota específica para ads.txt - deve vir ANTES do middleware catch-all
+  // Rota específica para ads.txt
   app.get(/^.*\/?ads\.txt$/, (req, res) => {
     const adsPath = path.join(process.cwd(), 'ads.txt')
     res.setHeader('Content-Type', 'text/plain; charset=utf-8')
@@ -71,7 +74,7 @@ async function startServer() {
     }
   })
 
-  // Rota específica para robots.txt - deve vir ANTES do middleware catch-all
+  // Rota específica para robots.txt
   app.get(/^.*\/?robots\.txt$/, (req, res) => {
     const robotsPath = path.join(process.cwd(), 'robots.txt')
     res.setHeader('Content-Type', 'text/plain; charset=utf-8')
@@ -86,7 +89,7 @@ async function startServer() {
     }
   })
 
-  // Rota única para qualquer caminho que termine com sitemap.xml (incluindo /, /pt/, /en/, /es/, etc)
+  // Rota específica para sitemap.xml
   app.get(/^.*\/?sitemap\.xml$/, (req, res) => {
     const sitemapPath = path.join(process.cwd(), 'dist/client/sitemap.xml')
     res.setHeader('Content-Type', 'application/xml; charset=utf-8')
@@ -105,6 +108,11 @@ async function startServer() {
   // Vite-plugin-ssr middleware. It should always be our last middleware (because it's a
   // catch-all middleware superseding any middleware placed after it).
   app.get('*', async (req, res, next) => {
+    // Pular processamento do vite-plugin-ssr para arquivos estáticos
+    if (req.path.endsWith('.txt') || req.path.endsWith('.xml') || req.path.endsWith('.json')) {
+      return next()
+    }
+
     const pageContextInit = {
       urlOriginal: req.originalUrl,
       // Passar headers para detecção de idioma

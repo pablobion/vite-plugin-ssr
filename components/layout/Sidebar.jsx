@@ -14,7 +14,7 @@ export default function Sidebar({ isCollapsed }) {
 
   // Obter páginas agrupadas por categoria
   const pagesByCategory = getPagesByCategory()
-  
+
   // Estado para gerenciar favoritos (armazena as keys das páginas favoritas)
   const [favoritesList, setFavoritesList] = useState(() => {
     // Inicializar o estado diretamente com os dados do localStorage
@@ -25,7 +25,7 @@ export default function Sidebar({ isCollapsed }) {
   const toggleFavorite = (pageKey, event) => {
     event.preventDefault()
     event.stopPropagation()
-    
+
     // Atualiza o localStorage
     favorites.toggle(pageKey)
     // Atualiza o estado local
@@ -43,7 +43,7 @@ export default function Sidebar({ isCollapsed }) {
     })
     return allPages.filter(page => isFavorite(page.key))
   }
-  
+
   // Estado para controlar quais categorias estão expandidas
   const [expandedCategories, setExpandedCategories] = useState(() => {
     const initial = { favorites: true } // Favoritos sempre começa expandido
@@ -63,17 +63,36 @@ export default function Sidebar({ isCollapsed }) {
 
   // Função para verificar se um link está ativo
   const isActive = (href) => {
+    // Para página index, verificar se estamos na raiz ou na página index do locale
     if (href === `/${locale}` || href === `/${locale}/`) {
       return currentPath === `/${locale}` || currentPath === `/${locale}/`
     }
+
     return currentPath.startsWith(href)
   }
 
   // Função para gerar URL de troca de idioma mantendo a página atual
   const getLanguageUrl = (newLocale) => {
-    // Remove o locale atual do path
+    // Se estamos na página index (/) e queremos português, retornar /
+    // (já estamos em português, então não há mudança)
+    if (currentPath === '/' && newLocale === 'pt') {
+      return '/'
+    }
+
+    // Se estamos na página index (/) e queremos outro idioma, retornar /{locale}
+    if (currentPath === '/' && newLocale !== 'pt') {
+      return `/${newLocale}`
+    }
+
+    // Para outras páginas, remover o locale atual e adicionar o novo
     const pathWithoutLocale = currentPath.replace(`/${locale}`, '') || '/'
-    // Adiciona o novo locale
+
+    // Se o novo locale é português e estamos indo para a página index, retornar /
+    if (newLocale === 'pt' && pathWithoutLocale === '/') {
+      return '/'
+    }
+
+    // Caso padrão: adicionar o novo locale
     return `/${newLocale}${pathWithoutLocale}`
   }
 
@@ -88,7 +107,7 @@ export default function Sidebar({ isCollapsed }) {
       {/* Logo */}
       <div className="mb-4 flex items-center justify-between">
         <Link
-          href={`/${locale}`}
+          href={locale === 'pt' ? '/' : `/${locale}`}
           className="text-xl font-bold text-foreground hover:text-muted-foreground transition-colors flex items-center"
         >
           <svg
@@ -262,12 +281,12 @@ export default function Sidebar({ isCollapsed }) {
                     className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity p-1"
                     title={isFavorite(page.key) ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
                   >
-                    <svg 
+                    <svg
                       className={`w-4 h-4 text-foreground transition-colors ${
-                        isFavorite(page.key) 
-                          ? 'fill-foreground' 
+                        isFavorite(page.key)
+                          ? 'fill-foreground'
                           : 'fill-none stroke-foreground'
-                      }`} 
+                      }`}
                       viewBox="0 0 24 24"
                       strokeWidth={isFavorite(page.key) ? 0 : 1.5}
                     >

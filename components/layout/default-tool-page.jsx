@@ -66,7 +66,7 @@ export function DefaultToolPage({
           <CardHeader>
             {/* Título com botão de compartilhar na mesma linha */}
             <div className="flex items-center justify-between mb-4">
-              <CardTitle className="text-4xl font-bold tracking-tight">
+              <CardTitle className="text-4xl text-foreground font-bold tracking-tight">
                 {title}
               </CardTitle>
 

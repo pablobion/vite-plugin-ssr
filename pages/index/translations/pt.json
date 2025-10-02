@@ -1,0 +1,51 @@
+{
+  "title": "4Generate - Plataforma de Ferramentas Online",
+  "description": "A plataforma definitiva para geradores, validadores e ferramentas úteis. Crie, valide e otimize com facilidade.",
+  "keywords": "ferramentas online, geradores, validadores, 4generate, plataforma, utilidades",
+  "badge": "✨ Nova plataforma de ferramentas",
+  "hero": {
+    "title": "Bem-vindo ao",
+    "brand": "4generate",
+    "subtitle": "A plataforma definitiva para geradores, validadores e ferramentas úteis. Crie, valide e otimize com facilidade."
+  },
+  "buttons": {
+    "startNow": "🚀 Começar Agora",
+    "documentation": "ℹ️ Sobre 4generate"
+  },
+  "features": {
+    "generators": {
+      "title": "Geradores",
+      "description": "Crie CPFs, senhas, códigos e muito mais com nossos geradores inteligentes.",
+      "icon": "⚡"
+    },
+    "validators": {
+      "title": "Validadores",
+      "description": "Valide documentos, emails, URLs e outros dados com precisão.",
+      "icon": "✅"
+    },
+    "tools": {
+      "title": "Ferramentas",
+      "description": "Utilitários essenciais para desenvolvedores e profissionais.",
+      "icon": "🔧"
+    }
+  },
+  "quickLinks": {
+    "title": "Acesse Rapidamente",
+    "examples": {
+      "title": "Exemplos",
+      "icon": "📝"
+    },
+    "components": {
+      "title": "Componentes",
+      "icon": "🧩"
+    },
+    "about": {
+      "title": "Sobre",
+      "icon": "ℹ️"
+    },
+    "test": {
+      "title": "Teste",
+      "icon": "🎨"
+    }
+  }
+}
