@@ -50,12 +50,41 @@ async function startServer() {
   // Other middlewares (e.g. some RPC middleware such as Telefunc)
   // ...
 
-  // Removido o middleware de redirecionamento automático para permitir 
+  // Removido o middleware de redirecionamento automático para permitir
   // mudança de locale sem redirect na página inicial
   // O locale será detectado automaticamente pelo onBeforeRoute
 
 
 
+  // Rota específica para ads.txt - deve vir ANTES do middleware catch-all
+  app.get(/^.*\/?ads\.txt$/, (req, res) => {
+    const adsPath = path.join(process.cwd(), 'ads.txt')
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+    res.setHeader('Cache-Control', 'public, max-age=86400') // Cache por 24 horas
+
+    try {
+      const adsContent = fs.readFileSync(adsPath, 'utf8')
+      res.send(adsContent)
+    } catch (error) {
+      console.error('Erro ao ler ads.txt:', error)
+      res.status(404).send('ads.txt não encontrado')
+    }
+  })
+
+  // Rota específica para robots.txt - deve vir ANTES do middleware catch-all
+  app.get(/^.*\/?robots\.txt$/, (req, res) => {
+    const robotsPath = path.join(process.cwd(), 'robots.txt')
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+    res.setHeader('Cache-Control', 'public, max-age=86400') // Cache por 24 horas
+
+    try {
+      const robotsContent = fs.readFileSync(robotsPath, 'utf8')
+      res.send(robotsContent)
+    } catch (error) {
+      console.error('Erro ao ler robots.txt:', error)
+      res.status(404).send('Robots.txt não encontrado')
+    }
+  })
 
   // Rota única para qualquer caminho que termine com sitemap.xml (incluindo /, /pt/, /en/, /es/, etc)
   app.get(/^.*\/?sitemap\.xml$/, (req, res) => {
@@ -83,12 +112,12 @@ async function startServer() {
     }
     const pageContext = await renderPage(pageContextInit)
     const { httpResponse } = pageContext
-    
+
     // Verificar se é um redirecionamento
     if (pageContext.redirect) {
       return res.redirect(301, pageContext.redirect)
     }
-    
+
     if (!httpResponse) {
       return next()
     } else {

@@ -27,7 +27,7 @@ function onBeforePrerender(prerenderContext) {
         locale
       })
     })
-    
+
     // 🚀 CORREÇÃO 404: Adicionar página raiz (/) para produção
     // Se for a página inicial, também gerar versão sem locale
     if (pageContext.urlOriginal === '/') {
@@ -73,13 +73,14 @@ async function render(pageContext) {
   const { documentProps } = pageContext.exports
 
   // Usar documentProps se existir, senão usar dados do pages.js
-  const title = (documentProps && documentProps.title) || pageMetas.title
-  const desc = (documentProps && documentProps.description) || pageMetas.description
-  const keywords = (documentProps && documentProps.keywords) || pageMetas.keywords
+  // Garantir que todas as variáveis tenham valores padrão para evitar undefined
+  const title = (documentProps && documentProps.title) || pageMetas.title || '4generate'
+  const desc = (documentProps && documentProps.description) || pageMetas.description || 'Plataforma de ferramentas úteis e geradores'
+  const keywords = (documentProps && documentProps.keywords) || pageMetas.keywords || 'ferramentas, geradores, validadores'
 
   // Definir domínio baseado em variável de ambiente
   const siteUrl = process.env.SITE_URL || 'https://4generate.com'
-  
+
   // Definir idioma do HTML baseado no locale
   const lang = locale === 'pt' ? 'pt-BR' : locale === 'en' ? 'en-US' : 'es-ES'
 
@@ -87,10 +88,10 @@ async function render(pageContext) {
   const hreflangTags = locales.map(loc => {
     const hreflangLang = loc === 'pt' ? 'pt-BR' : loc === 'en' ? 'en-US' : 'es-ES'
     return `<link rel="alternate" hreflang="${hreflangLang}" href="${siteUrl}/${loc}${pageContext.urlOriginal}" />`
-  }).join('\n        ')
+  }).join('\n        ') || ''
 
   // Adicionar tag hreflang x-default para idioma padrão
-  const xDefaultTag = `<link rel="alternate" hreflang="x-default" href="${siteUrl}/${localeDefault}${pageContext.urlOriginal}" />`
+  const xDefaultTag = `<link rel="alternate" hreflang="x-default" href="${siteUrl}/${localeDefault}${pageContext.urlOriginal}" />` || ''
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="${lang}">
@@ -124,8 +125,8 @@ async function render(pageContext) {
         ${dangerouslySkipEscape(hreflangTags)}
         ${dangerouslySkipEscape(xDefaultTag)}
         <title>${title}</title>
-        ${dangerouslySkipEscape(schemas.map(schema => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`).join('\n        '))}
-        
+        ${dangerouslySkipEscape((schemas || []).map(schema => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`).join('\n        '))}
+
       </head>
       <body>
         <div id="react-root">${dangerouslySkipEscape(pageHtml)}</div>

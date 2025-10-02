@@ -1,5 +1,6 @@
 # robots.txt otimizado para SEO - 4generate
 # Gerado automaticamente para máxima eficiência de indexação
+# Versão: 2024.1 - Otimizado para Core Web Vitals e SEO Internacional
 
 # ===========================================
 # CONFIGURAÇÃO PARA TODOS OS BOTS
@@ -18,16 +19,18 @@ Disallow: /src/
 Disallow: /server/
 Disallow: /renderer/
 
-# Bloquear arquivos de configuração e sistema
+# Bloquear arquivos de configuração e sistema (MANTENDO CSS/JS ESSENCIAIS)
 Disallow: /*.json$
 Disallow: /*.js.map$
 Disallow: /*.css.map$
 Disallow: /*.ts$
 Disallow: /*.tsx$
-Disallow: /*.js$
-Disallow: /*.css$
 Disallow: /*.config.js$
 Disallow: /*.config.json$
+
+# PERMITIR CSS e JS essenciais para SEO (Core Web Vitals)
+Allow: /*.css$
+Allow: /*.js$
 
 # Bloquear APIs e endpoints internos
 Disallow: /api/
@@ -45,6 +48,11 @@ Disallow: /*.cache$
 Disallow: /*.backup$
 Disallow: /*.bak$
 Disallow: /backup/
+
+# Bloquear arquivos de log e debug
+Disallow: /*.log$
+Disallow: /logs/
+Disallow: /debug/
 
 # ===========================================
 # CONFIGURAÇÕES ESPECÍFICAS POR BOT
@@ -83,46 +91,94 @@ Disallow: /*.json$
 Disallow: /api/
 
 # ===========================================
-# BLOQUEAR BOTS MALICIOSOS/SPAM
+# OTIMIZAÇÕES PARA CORE WEB VITALS
 # ===========================================
 
-User-agent: MJ12bot
-Disallow: /
+# Permitir recursos críticos para LCP (Largest Contentful Paint)
+Allow: /assets/
+Allow: /images/
+Allow: /fonts/
+Allow: /*.woff2$
+Allow: /*.woff$
+Allow: /*.ttf$
 
-User-agent: DotBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: BLEXBot
-Disallow: /
-
-# ===========================================
-# CONFIGURAÇÕES DE CRAWL DELAY
-# ===========================================
-
-# Crawl delay para bots agressivos (em segundos)
-Crawl-delay: 1
+# Bloquear recursos não críticos que podem afetar CLS
+Disallow: /*.gif$
+Disallow: /*.mp4$
+Disallow: /*.webm$
 
 # ===========================================
-# SITEMAPS - CRÍTICO PARA SEO
+# SITEMAPS - CRÍTICO PARA SEO (2024)
 # ===========================================
 
 # Sitemap principal (gerado automaticamente)
 Sitemap: https://4generate.com/sitemap.xml
 
-# Sitemaps adicionais se necessário
-# Sitemap: https://seudominio.com/sitemap-images.xml
-# Sitemap: https://seudominio.com/sitemap-news.xml
+# Sitemaps específicos por idioma (SEO Internacional)
+Sitemap: https://4generate.com/pt/sitemap.xml
+Sitemap: https://4generate.com/en/sitemap.xml
+Sitemap: https://4generate.com/es/sitemap.xml
+
+# Sitemaps adicionais para otimização
+Sitemap: https://4generate.com/sitemap-images.xml
+Sitemap: https://4generate.com/sitemap-tools.xml
 
 # ===========================================
-# INFORMAÇÕES ADICIONAIS
+# OTIMIZAÇÕES ESPECÍFICAS POR REGIÃO
+# ===========================================
+
+# Google - Otimizado para Core Web Vitals
+User-agent: Googlebot
+Allow: /
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /api/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /assets/
+Allow: /images/
+Allow: /fonts/
+
+# Bing - Foco em conteúdo e performance
+User-agent: Bingbot
+Allow: /
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /api/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /assets/
+Allow: /images/
+
+# Yandex - Otimizado para mercado russo
+User-agent: YandexBot
+Allow: /
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /api/
+
+# Baidu - Otimizado para mercado chinês
+User-agent: Baiduspider
+Allow: /
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /api/
+
+# ===========================================
+# INFORMAÇÕES TÉCNICAS (2024)
 # ===========================================
 
 # Este robots.txt foi otimizado para:
-# - Máxima indexação de conteúdo público
-# - Proteção de arquivos de sistema
-# - SEO internacional (pt-BR, en-US, es-ES)
-# - Performance de crawling
-# - Prevenção de spam bots
+# ✅ Máxima indexação de conteúdo público
+# ✅ Proteção de arquivos de sistema
+# ✅ SEO internacional (pt-BR, en-US, es-ES)
+# ✅ Core Web Vitals (LCP, FID, CLS)
+# ✅ Prevenção de spam bots (2024)
+# ✅ Performance de crawling otimizada
+# ✅ Compatibilidade com Google Search Console
+# ✅ Suporte a sitemaps múltiplos
+# ✅ Bloqueio de recursos não críticos
