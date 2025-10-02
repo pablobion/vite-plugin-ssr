@@ -21,6 +21,15 @@ export const pages = [
     locales: ['pt', 'en', 'es']
   },
   {
+    key: 'about',
+    label: 'Sobre',
+    href: '/about',
+    category: 'main',
+    keywords: ['sobre', 'about', 'informações', 'information', 'empresa', 'company', 'quem somos', 'who we are'],
+    show: false,
+    locales: ['pt', 'en', 'es']
+  },
+  {
     key: 'terms',
     label: 'Termos de Uso',
     href: '/terms',

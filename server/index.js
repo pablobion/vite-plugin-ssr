@@ -16,6 +16,7 @@ import compression from 'compression'
 import { renderPage } from 'vite-plugin-ssr/server'
 import { root } from './root.js'
 import path from 'path'
+import fs from 'fs'
 const isProduction = process.env.NODE_ENV === 'production'
 
 startServer()
@@ -55,6 +56,21 @@ async function startServer() {
 
 
 
+
+  // Rota única para qualquer caminho que termine com sitemap.xml (incluindo /, /pt/, /en/, /es/, etc)
+  app.get(/^.*\/?sitemap\.xml$/, (req, res) => {
+    const sitemapPath = path.join(process.cwd(), 'dist/client/sitemap.xml')
+    res.setHeader('Content-Type', 'application/xml; charset=utf-8')
+    res.setHeader('Cache-Control', 'public, max-age=3600') // Cache por 1 hora
+
+    try {
+      const sitemapContent = fs.readFileSync(sitemapPath, 'utf8')
+      res.send(sitemapContent)
+    } catch (error) {
+      console.error('Erro ao ler sitemap.xml:', error)
+      res.status(404).send('Sitemap não encontrado')
+    }
+  })
 
 
   // Vite-plugin-ssr middleware. It should always be our last middleware (because it's a
