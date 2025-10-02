@@ -89,10 +89,10 @@ export default function Sidebar({ isCollapsed }) {
       <div className="mb-4 flex items-center justify-between">
         <Link
           href={`/${locale}`}
-          className="text-xl font-bold text-foreground hover:text-muted-foreground transition-colors flex items-center gap-2"
+          className="text-xl font-bold text-foreground hover:text-muted-foreground transition-colors flex items-center"
         >
           <svg
-            className="h-5 w-5 text-foreground"
+            className="h-5 w-5 text-foreground mr-2"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
