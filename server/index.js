@@ -15,6 +15,7 @@ import express from 'express'
 import compression from 'compression'
 import { renderPage } from 'vite-plugin-ssr/server'
 import { root } from './root.js'
+import path from 'path'
 const isProduction = process.env.NODE_ENV === 'production'
 
 startServer()
@@ -105,6 +106,32 @@ Disallow: /
 # Sitemap
 Sitemap: ${process.env.SITE_URL || 'https://seudominio.com'}/sitemap.xml`)
   })
+
+  // Rotas específicas para sitemap.xml em todos os idiomas
+  app.get('/sitemap.xml', (req, res) => {
+    const sitemapPath = path.join(process.cwd(), 'dist/client/sitemap.xml')
+    res.setHeader('Content-Type', 'application/xml')
+    res.sendFile(sitemapPath)
+  })
+  
+  app.get('/pt/sitemap.xml', (req, res) => {
+    const sitemapPath = path.join(process.cwd(), 'dist/client/sitemap.xml')
+    res.setHeader('Content-Type', 'application/xml')
+    res.sendFile(sitemapPath)
+  })
+  
+  app.get('/en/sitemap.xml', (req, res) => {
+    const sitemapPath = path.join(process.cwd(), 'dist/client/sitemap.xml')
+    res.setHeader('Content-Type', 'application/xml')
+    res.sendFile(sitemapPath)
+  })
+  
+  app.get('/es/sitemap.xml', (req, res) => {
+    const sitemapPath = path.join(process.cwd(), 'dist/client/sitemap.xml')
+    res.setHeader('Content-Type', 'application/xml')
+    res.sendFile(sitemapPath)
+  })
+
 
   // Vite-plugin-ssr middleware. It should always be our last middleware (because it's a
   // catch-all middleware superseding any middleware placed after it).
