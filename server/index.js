@@ -76,9 +76,28 @@ async function startServer() {
 
   // Rota específica para robots.txt
   app.get(/^.*\/?robots\.txt$/, (req, res) => {
-    const robotsPath = path.join(process.cwd(), 'robots.txt')
     res.setHeader('Content-Type', 'text/plain; charset=utf-8')
     res.setHeader('Cache-Control', 'public, max-age=86400') // Cache por 24 horas
+
+    // Tentar primeiro o arquivo do build (produção)
+    const buildRobotsPath = path.join(process.cwd(), 'dist/client/robots.txt')
+    const sourceRobotsPath = path.join(process.cwd(), 'robots.txt')
+
+    let robotsPath = null
+
+    // Priorizar arquivo do build se existir
+    if (fs.existsSync(buildRobotsPath)) {
+      robotsPath = buildRobotsPath
+      console.log('📋 Servindo robots.txt do build (produção)')
+    } else if (fs.existsSync(sourceRobotsPath)) {
+      robotsPath = sourceRobotsPath
+      console.log('📋 Servindo robots.txt da raiz (desenvolvimento)')
+    }
+
+    if (!robotsPath) {
+      console.error('❌ Robots.txt não encontrado em nenhuma localização')
+      return res.status(404).send('Robots.txt não encontrado')
+    }
 
     try {
       const robotsContent = fs.readFileSync(robotsPath, 'utf8')
