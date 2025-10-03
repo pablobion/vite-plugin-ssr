@@ -1,0 +1,54 @@
+{
+  "title": "Gerador de CNH",
+  "description": "Gere números de CNH (Carteira Nacional de Habilitação) válidos para testes e desenvolvimento.",
+  "feature": {
+    "title": "Gere sua CNH"
+  },
+  "form": {
+    "stateLabel": "Estado",
+    "statePlaceholder": "Selecione um estado",
+    "stateHelp": "Escolha o estado para gerar a CNH",
+    "categoryLabel": "Categoria",
+    "categoryPlaceholder": "Selecione uma categoria",
+    "categoryHelp": "Escolha a categoria da habilitação"
+  },
+  "buttons": {
+    "generate": "Gerar CNH",
+    "copy": "Copiar CNH",
+    "clear": "Limpar"
+  },
+  "result": {
+    "title": "CNH Gerada",
+    "number": "Número da CNH",
+    "state": "Estado",
+    "category": "Categoria",
+    "valid": "Válida"
+  },
+  "alerts": {
+    "stateRequired": "Por favor, selecione um estado",
+    "categoryRequired": "Por favor, selecione uma categoria",
+    "copied": "CNH copiada para a área de transferência!"
+  },
+  "about": {
+    "title": "Sobre o Gerador de CNH",
+    "description": "Esta ferramenta gera números de CNH válidos seguindo o algoritmo oficial brasileiro. Os números gerados são matematicamente válidos e podem ser usados para testes e desenvolvimento, mas não devem ser utilizados para fins fraudulentos."
+  },
+  "features": {
+    "title": "Funcionalidades",
+    "validAlgorithm": "Algoritmo de validação oficial",
+    "stateSelection": "Seleção por estado",
+    "categorySupport": "Suporte a todas as categorias",
+    "copyEasy": "Cópia fácil do número"
+  },
+  "tips": {
+    "title": "Dicas de Uso",
+    "stateRequired": "Selecione o estado desejado",
+    "categoryRequired": "Escolha a categoria da habilitação",
+    "validNumbers": "Números gerados são matematicamente válidos",
+    "testOnly": "Use apenas para testes e desenvolvimento"
+  },
+  "note": {
+    "title": "Importante",
+    "content": "Os números gerados são válidos matematicamente, mas são apenas para fins de teste. Não utilize para atividades fraudulentas ou ilegais."
+  }
+}

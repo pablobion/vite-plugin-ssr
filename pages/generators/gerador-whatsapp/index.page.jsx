@@ -220,7 +220,8 @@ function Page() {
       <div className="flex flex-col sm:flex-row gap-3 pt-4">
         <Button
           onClick={generateWhatsAppLink}
-          className="flex-1 bg-green-600 hover:bg-green-700 text-white min-h-[48px]"
+          variant="primary"
+          className="flex-1"
         >
           <RefreshCw className="mr-2 h-4 w-4" />
           Gerar Link
@@ -228,8 +229,7 @@ function Page() {
 
         <Button
           onClick={clearForm}
-          variant="outline"
-          className="sm:px-8 min-h-[48px]"
+          variant="ghost"
         >
           <Trash2 className="mr-2 h-4 w-4" />
           Limpar

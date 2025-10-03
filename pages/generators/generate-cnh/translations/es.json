@@ -1,0 +1,54 @@
+{
+  "title": "Generador de CNH",
+  "description": "Genera números de CNH (Licencia de Conducir Brasileña) válidos para pruebas y desarrollo.",
+  "feature": {
+    "title": "Genera tu CNH"
+  },
+  "form": {
+    "stateLabel": "Estado",
+    "statePlaceholder": "Selecciona un estado",
+    "stateHelp": "Elige el estado para generar la CNH",
+    "categoryLabel": "Categoría",
+    "categoryPlaceholder": "Selecciona una categoría",
+    "categoryHelp": "Elige la categoría de la licencia"
+  },
+  "buttons": {
+    "generate": "Generar CNH",
+    "copy": "Copiar CNH",
+    "clear": "Limpiar"
+  },
+  "result": {
+    "title": "CNH Generada",
+    "number": "Número de CNH",
+    "state": "Estado",
+    "category": "Categoría",
+    "valid": "Válida"
+  },
+  "alerts": {
+    "stateRequired": "Por favor, selecciona un estado",
+    "categoryRequired": "Por favor, selecciona una categoría",
+    "copied": "¡CNH copiada al portapapeles!"
+  },
+  "about": {
+    "title": "Acerca del Generador de CNH",
+    "description": "Esta herramienta genera números de CNH válidos siguiendo el algoritmo oficial brasileño. Los números generados son matemáticamente válidos y pueden usarse para pruebas y desarrollo, pero no deben utilizarse para fines fraudulentos."
+  },
+  "features": {
+    "title": "Características",
+    "validAlgorithm": "Algoritmo de validación oficial",
+    "stateSelection": "Selección por estado",
+    "categorySupport": "Soporte para todas las categorías",
+    "copyEasy": "Copia fácil del número"
+  },
+  "tips": {
+    "title": "Consejos de Uso",
+    "stateRequired": "Selecciona el estado deseado",
+    "categoryRequired": "Elige la categoría de la licencia",
+    "validNumbers": "Los números generados son matemáticamente válidos",
+    "testOnly": "Usa solo para pruebas y desarrollo"
+  },
+  "note": {
+    "title": "Importante",
+    "content": "Los números generados son matemáticamente válidos pero son solo para fines de prueba. No utilices para actividades fraudulentas o ilegales."
+  }
+}

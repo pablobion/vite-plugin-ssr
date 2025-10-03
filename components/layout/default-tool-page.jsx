@@ -73,12 +73,10 @@ export function DefaultToolPage({
               {/* Botão de Compartilhar */}
               <Button
                 onClick={handleShare}
-                variant="outline"
-                size="sm"
                 className={`flex items-center gap-2 transition-all duration-300 ${
                   isCopied
                     ? 'bg-green-100 border-green-300 text-green-700 dark:bg-green-900/20 dark:border-green-700 dark:text-green-400'
-                    : 'bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white border-purple-500 hover:border-purple-600 shadow-lg hover:shadow-xl'
+                    : 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white border-purple-500 hover:border-purple-600 shadow-lg hover:shadow-xl'
                 }`}
               >
                 {isCopied ? (

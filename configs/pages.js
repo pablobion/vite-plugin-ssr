@@ -47,6 +47,15 @@ export const pages = [
     show: true,
     locales: ['pt', 'en', 'es']
   },
+  {
+    key: 'generators/generate-cnh',
+    href: '/generators/generate-cnh',
+    label: 'Gerador de CNH',
+    category: 'generators',
+    keywords: ['cnh', 'gerador', 'gerador de cnh', 'habilitação', 'carteira de motorista', 'licença', 'brasil', 'documento'],
+    show: true,
+    locales: ['pt', 'en', 'es']
+  },
   // Categorias (não mostradas na sidebar, mas usadas para organização)
   {
     key: 'category-generators',

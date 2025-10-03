@@ -72,11 +72,28 @@ async function render(pageContext) {
   // See https://vite-plugin-ssr.com/head
   const { documentProps } = pageContext.exports
 
+  // Processar documentProps - suporta tanto função quanto objeto
+  let finalDocumentProps = documentProps
+  if (typeof documentProps === 'function') {
+    finalDocumentProps = documentProps(pageContext)
+  }
+
   // Usar documentProps se existir, senão usar dados do pages.js
   // Garantir que todas as variáveis tenham valores padrão para evitar undefined
-  const title = (documentProps && documentProps.title) || pageMetas.title || '4generate'
-  const desc = (documentProps && documentProps.description) || pageMetas.description || 'Plataforma de ferramentas úteis e geradores'
-  const keywords = (documentProps && documentProps.keywords) || pageMetas.keywords || 'ferramentas, geradores, validadores'
+  const title = (finalDocumentProps && finalDocumentProps.title) || pageMetas.title || '4generate'
+  const desc = (finalDocumentProps && finalDocumentProps.description) || pageMetas.description || 'Plataforma de ferramentas úteis e geradores'
+
+  // Combinar keywords do pages.js com documentProps
+  let keywords = 'ferramentas, geradores, validadores' // padrão
+  if (pageMetas.keywords) {
+    keywords = pageMetas.keywords
+  }
+  if (finalDocumentProps && finalDocumentProps.keywords) {
+    // Se documentProps tem keywords, combinar com as do pages.js
+    const baseKeywords = pageMetas.keywords || ''
+    const additionalKeywords = finalDocumentProps.keywords
+    keywords = baseKeywords ? `${baseKeywords}, ${additionalKeywords}` : additionalKeywords
+  }
 
   // Definir domínio baseado em variável de ambiente
   const siteUrl = process.env.SITE_URL || 'https://4generate.com'

@@ -1,0 +1,54 @@
+{
+  "title": "CNH Generator",
+  "description": "Generate valid CNH (Brazilian Driver's License) numbers for testing and development purposes.",
+  "feature": {
+    "title": "Generate your CNH"
+  },
+  "form": {
+    "stateLabel": "State",
+    "statePlaceholder": "Select a state",
+    "stateHelp": "Choose the state to generate the CNH",
+    "categoryLabel": "Category",
+    "categoryPlaceholder": "Select a category",
+    "categoryHelp": "Choose the license category"
+  },
+  "buttons": {
+    "generate": "Generate CNH",
+    "copy": "Copy CNH",
+    "clear": "Clear"
+  },
+  "result": {
+    "title": "Generated CNH",
+    "number": "CNH Number",
+    "state": "State",
+    "category": "Category",
+    "valid": "Valid"
+  },
+  "alerts": {
+    "stateRequired": "Please select a state",
+    "categoryRequired": "Please select a category",
+    "copied": "CNH copied to clipboard!"
+  },
+  "about": {
+    "title": "About CNH Generator",
+    "description": "This tool generates valid CNH numbers following the official Brazilian algorithm. The generated numbers are mathematically valid and can be used for testing and development, but should not be used for fraudulent purposes."
+  },
+  "features": {
+    "title": "Features",
+    "validAlgorithm": "Official validation algorithm",
+    "stateSelection": "State selection",
+    "categorySupport": "Support for all categories",
+    "copyEasy": "Easy number copying"
+  },
+  "tips": {
+    "title": "Usage Tips",
+    "stateRequired": "Select the desired state",
+    "categoryRequired": "Choose the license category",
+    "validNumbers": "Generated numbers are mathematically valid",
+    "testOnly": "Use only for testing and development"
+  },
+  "note": {
+    "title": "Important",
+    "content": "Generated numbers are mathematically valid but are for testing purposes only. Do not use for fraudulent or illegal activities."
+  }
+}

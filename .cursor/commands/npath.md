@@ -1,0 +1,1 @@
+Com base na semantica e estrutura da pagina "generators/gerador-whatsapp" crie uma nova com o path passado a seguir, e faça a ferramenta com traduções e seo impecavel, lembre de adicionar no menu
