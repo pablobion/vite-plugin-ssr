@@ -61,9 +61,28 @@ async function startServer() {
 
   // Rota específica para ads.txt
   app.get(/^.*\/?ads\.txt$/, (req, res) => {
-    const adsPath = path.join(process.cwd(), 'ads.txt')
     res.setHeader('Content-Type', 'text/plain; charset=utf-8')
     res.setHeader('Cache-Control', 'public, max-age=86400') // Cache por 24 horas
+
+    // Tentar primeiro o arquivo do build (produção)
+    const buildAdsPath = path.join(process.cwd(), 'dist/client/ads.txt')
+    const sourceAdsPath = path.join(process.cwd(), 'ads.txt')
+
+    let adsPath = null
+
+    // Priorizar arquivo do build se existir
+    if (fs.existsSync(buildAdsPath)) {
+      adsPath = buildAdsPath
+      console.log('📋 Servindo ads.txt do build (produção)')
+    } else if (fs.existsSync(sourceAdsPath)) {
+      adsPath = sourceAdsPath
+      console.log('📋 Servindo ads.txt da raiz (desenvolvimento)')
+    }
+
+    if (!adsPath) {
+      console.error('❌ Ads.txt não encontrado em nenhuma localização')
+      return res.status(404).send('ads.txt não encontrado')
+    }
 
     try {
       const adsContent = fs.readFileSync(adsPath, 'utf8')
